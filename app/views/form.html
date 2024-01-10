@@ -1,0 +1,715 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+
+
+
+  <div class="govuk-phase-banner">
+	<p class="govuk-phase-banner__content">
+	  <strong class="govuk-tag govuk-phase-banner__content__tag">
+		alpha
+	  </strong>
+	  <span class="govuk-phase-banner__text">
+		This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+	  </span>
+	</p>
+  </div>
+{% endblock %}
+
+{% block content %} 
+
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" id="saveMessage" style="display: none;">
+	<div class="govuk-notification-banner__header">
+	  <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+		Saving
+	  </h2>
+	</div>
+	<div class="govuk-notification-banner__content">
+	  <p class="govuk-notification-banner__heading">
+		The form has been saved.
+	  </p>
+	</div>
+  </div>
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/start" method="post" id="gogoForm" novalidate>
+			<div id="gogoFieldset">
+
+			</div>
+          
+				
+
+
+			<div class="govuk-button-group">
+				<button class="govuk-button  govuk-button--secondary" data-module="govuk-button" id="saveButton" onclick="clickSave(); return false">
+					Save
+				</button>
+				<button class="govuk-button" data-module="govuk-button" id="gogoSubmit">
+					Continue
+				</button>
+			</div>
+
+        </form>
+      </div>
+    </div>
+
+
+<script>
+
+
+
+
+
+function log(txt){
+	console.log(txt);
+}
+
+
+
+function clickSave(){
+	element = document.getElementById("saveButton");
+	element.innerHTML = "Saving";
+	setTimeout(savingSaveButton, 500);
+}
+function savingSaveButton(){
+	element = document.getElementById("saveButton");
+	element.innerHTML = "Saving.";
+	setTimeout(saving2SaveButton, 500);
+}
+function saving2SaveButton(){
+	element = document.getElementById("saveButton");
+	element.innerHTML = "Saving..";
+	setTimeout(saving3SaveButton, 500);
+}
+function saving3SaveButton(){
+	element = document.getElementById("saveButton");
+	element.innerHTML = "Saving...";
+	setTimeout(savedSaveButton, 1000);
+}
+function savedSaveButton(){
+	element = document.getElementById("saveButton");
+	element.innerHTML = "Saved";
+	setTimeout(resetSaveButton, 2000);
+}
+
+function resetSaveButton(){
+	element = document.getElementById("saveButton");
+	element.innerHTML = "Save";
+}
+
+
+function itpLoadFormData(){
+	// This loads the saved form data. Rem it if it is a pain to use.
+	
+	var itpSave = localStorage.getItem("itpSave"); 
+	if(itpSave){
+		itp = JSON.parse(itpSave);
+	}
+}
+
+function itpSaveFormData(){
+	localStorage.setItem("itpSave", JSON.stringify(itp));
+}
+
+function itpDeleteFormData(){
+	localStorage.removeItem("itpSave");
+}
+
+gogoSubmit.onclick = function(){
+	itpSaveFormData();
+};
+
+
+
+function noOfQuestions(prop){
+
+	var size = itp.q[prop].size
+	var cat = itp.q[prop].category
+	
+	var ret = [];
+	ret[0] = null;
+	ret[1] = null;
+	var cnt = 1;
+	var lastpage = "";
+	var page = "";
+	for (const property in itp.q) {
+		if(itp.q[property].size === size && itp.q[property].category === cat && itp.q[property].page === property){
+			page = itp.q[property].page;
+			if(prop === property){
+				ret[0] = cnt;
+			}
+			if(page !== lastpage){
+				cnt++;
+			}
+			lastpage = page;
+		}
+	}
+	ret[1] = cnt-1;
+
+	if(ret[0] === null){
+		return "";
+	}
+	return ret;
+
+
+
+
+}
+
+
+function itpMain(){
+
+	itpLoadFormData();
+
+	if(qID === "clear"){
+		
+		var con = confirm("Clear all the saved form data and start again?");
+		if(con){
+			itpDeleteFormData();
+			window.location.replace("/");
+		}else{
+			window.history.back();
+		}
+		return;
+	}
+
+
+	// Set the form action. This sets the action for the continue button.
+	// This is the default action for the question
+	document.getElementById("gogoForm").action = "\\" + itp.q[qID].action + "?qid=" + itp.q[qID].param;
+	
+	var cnt = 0;
+	var hd = "l";
+	for (const prop in itp.q) {
+
+		if(itp.q[prop].page === qID){
+			
+
+			var inner ="";
+
+			//log(itp.q[prop].page + " - " + prop + " - " + prop[prop.length - 1]);
+
+			
+			if(prop[prop.length - 1] !== "1"){
+				hd = "s";
+			}else{
+				hd = "m";
+				if(cnt > 0 ){
+					var inner ="<br>";
+				}
+			}
+
+			if(itp.q[prop].type === "input" ){
+				
+				inner += '<div class="govuk-form-group" id="'+prop+'" >';
+
+					// Question Count
+					if(!itp.q[prop].hasOwnProperty("showquestioncount")){
+						itp.q[prop].showquestioncount = true;
+					}
+					if(itp.q[prop].showquestioncount){
+						section = getSection(prop);
+						noofq = noOfQuestions(prop);
+						if(noofq){
+							if(noofq[1] > 1){
+								inner += '<span class="govuk-caption-l">' + section + ' - Question '+noofq[0]+' of '+noofq[1]+ " " +'</span>';
+							}else{
+								inner += '<span class="govuk-caption-l">' + section + '</span>';
+							}
+						}
+					}
+
+
+
+					inner += '<h1 class="govuk-label-wrapper">';
+						inner += '<label class="govuk-label govuk-label--'+hd+'" for="event-name">';
+							inner += itp.q[prop].question;
+							inner += '</label>';
+							inner += '</h1>';
+							inner += '<div id="event-name-hint" class="govuk-hint">';
+								inner += itp.q[prop].hint;
+								inner += '</div>';
+								inner += '<input class="govuk-input govuk-!-width-one-quarter" id="one-quarter" name="one-quarter" type="text">';
+
+							inner += '</div>';
+
+					
+				element = document.getElementById("gogoFieldset");
+				element.innerHTML += inner;
+
+			}
+
+			if(itp.q[prop].type === "date" ){
+				
+				inner += '<div class="govuk-form-group" id="'+prop+'" >';
+
+					// Question Count
+					if(!itp.q[prop].hasOwnProperty("showquestioncount")){
+						itp.q[prop].showquestioncount = true;
+					}
+
+					if(itp.q[prop].showquestioncount){
+						section = getSection(prop);
+						noofq = noOfQuestions(prop);
+						if(noofq){
+							if(noofq[1] > 1){
+								inner += '<span class="govuk-caption-l">' + section + ' - Question '+noofq[0]+' of '+noofq[1]+ " " +'</span>';
+							}else{
+								inner += '<span class="govuk-caption-l">' + section + '</span>';
+							}
+						}
+					}
+					
+					inner += '<fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">';
+					inner += '<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">';
+					inner += '<h1 class="govuk-fieldset__heading govuk-label--'+hd+'">';
+					inner += itp.q[prop].question;
+					inner += '</h1>';
+					inner += '</legend>';
+					
+					inner += '<div id="passport-issued-hint" class="govuk-hint">';
+					inner += itp.q[prop].hint;
+					inner += '</div>';
+					
+					inner += '<div class="govuk-date-input" id="passport-issued">';
+					inner += '<div class="govuk-date-input__item">';
+					inner += '<div class="govuk-form-group">';
+					inner += '<label class="govuk-label govuk-date-input__label" for="passport-issued-day">';
+					inner += 'Day';
+					inner += '</label>';
+					inner += '<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">';
+					inner += '</div>';
+					inner += '</div>';
+					inner += '<div class="govuk-date-input__item">';
+					inner += '<div class="govuk-form-group">';
+					inner += '<label class="govuk-label govuk-date-input__label" for="passport-issued-month">';
+					inner += 'Month';
+					inner += '</label>';
+					inner += '<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">';
+					inner += '</div>';
+					inner += '</div>';
+					inner += '<div class="govuk-date-input__item">';
+					inner += '<div class="govuk-form-group">';
+					inner += '<label class="govuk-label govuk-date-input__label" for="passport-issued-year">';
+					inner += 'Year';
+					inner += '</label>';
+					inner += '<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">';
+					inner += '</div>';
+					inner += '</div>';
+					inner += '</div>';
+					inner += '</fieldset>';
+					inner += '</div>';
+					
+				element = document.getElementById("gogoFieldset");
+				element.innerHTML += inner;
+
+			}
+
+
+
+			if(itp.q[prop].type === "textarea" ){
+				
+				inner += '<div class="govuk-form-group" id="'+prop+'" >';
+
+					// Question Count
+					if(!itp.q[prop].hasOwnProperty("showquestioncount")){
+						itp.q[prop].showquestioncount = true;
+					}
+					if(itp.q[prop].showquestioncount){
+						section = getSection(prop);
+						noofq = noOfQuestions(prop);
+						if(noofq){
+							if(noofq[1] > 1){
+								inner += '<span class="govuk-caption-l">' + section + ' - Question '+noofq[0]+' of '+noofq[1]+ " " +'</span>';
+							}else{
+								inner += '<span class="govuk-caption-l">' + section + '</span>';
+							}
+						}
+					}
+
+
+
+					inner += '<fieldset class="govuk-fieldset" id="">';
+						inner += '<div class="govuk-form-group">';
+						inner += '<h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--'+hd+'" for="more-detail">';
+						inner += itp.q[prop].question;
+						inner += '</label>';
+						inner += '</h1>';
+						inner += '<div id="more-detail-hint" class="govuk-hint">';
+						inner += itp.q[prop].hint;
+						inner += '</div>';
+						inner += '<textarea onchange="textAreaChange(\''+prop+'\')" class="govuk-textarea" id="'+ prop +'" name="'+ prop +'" rows="5" aria-describedby="more-detail-hint">';
+							inner += itp.q[prop].options.text;
+						inner += '</textarea>';
+						inner += '</div>';
+					inner += '</fieldset>';
+				inner += '</div>';
+				
+				element = document.getElementById("gogoFieldset");
+				element.innerHTML += inner;
+
+			}
+
+			if(itp.q[prop].type === "radio" ){
+				
+				
+				inner += '<div class="govuk-form-group" id="'+prop+'" >';
+
+					// Question Count
+					if(!itp.q[prop].hasOwnProperty("showquestioncount")){
+						itp.q[prop].showquestioncount = true;
+					}
+					if(itp.q[prop].showquestioncount){
+						section = getSection(prop);
+						noofq = noOfQuestions(prop);
+						if(noofq){
+							if(noofq[1] > 1){
+								inner += '<span class="govuk-caption-l">' + section + ' - Question '+noofq[0]+' of '+noofq[1]+ " " +'</span>';
+							}else{
+								inner += '<span class="govuk-caption-l">' + section + '</span>';
+							}
+						}
+					}
+					
+
+				inner += '<fieldset class="govuk-fieldset" id="">';
+
+				
+				inner += '<legend class="govuk-fieldset__legend govuk-fieldset__legend--'+hd+'">';
+					
+				inner += '\
+					<h1 class="govuk-fieldset__heading" id="gogoHeading">\
+					'+itp.q[prop].question+'\
+					</h1>\
+				</legend>\
+				\
+				<div id="changed-name-hint" class="govuk-hint">\
+					'+itp.q[prop].hint+'\
+				</div>\
+				';
+
+				if(itp.q[prop].inline){
+					inner += '<div class="govuk-radios govuk-radios--inline" data-module="govuk-radios" id="gogoRadio">';
+				}else{
+					inner += '<div class="govuk-radios" data-module="govuk-radios" id="gogoRadio">';
+				}
+
+
+				for(var i = 0; i < itp.q[prop].options.length; i++){	
+					var checked = "";
+					if(itp.q[prop].options[i].checked){checked = "checked";}
+					inner += '\
+						<div class="govuk-radios__item">\
+							<input onclick="radioClick(\''+prop +'-'+ i+'\')" class="govuk-radios__input" id="'+prop +'-'+ i+'" name="'+prop+'" type="radio" value="'+itp.q[prop].options[i].answer+'" '+checked+'>\
+							<label class="govuk-label govuk-radios__label" for="'+prop +'-'+ i+'">'+itp.q[prop].options[i].answer+'\
+							</label>\
+							<div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">\
+								'+itp.q[prop].options[i].hint+'\
+							</div>\
+						</div>\
+						';
+				}
+						
+				inner += '</div>';
+				inner += '</fieldset>';
+				inner += '</div>';
+
+				element = document.getElementById("gogoFieldset");
+				element.innerHTML += inner;
+				
+			}
+
+
+			if(itp.q[prop].type === "checkbox" ){
+				
+				var inner = "";
+
+				inner += '<div class="govuk-form-group" id="'+prop+'">';
+				inner += '<fieldset class="govuk-fieldset" aria-describedby="waste-hint">';
+				inner += '<legend class="govuk-fieldset__legend govuk-fieldset__legend--'+hd+'">';
+				inner += '<h1 class="govuk-fieldset__heading">';
+				inner += itp.q[prop].question;
+				inner += '</h1>';
+				inner += '</legend>';
+				inner += '<div id="waste-hint" class="govuk-hint">';
+				inner += itp.q[prop].hint;
+				inner += '</div>';
+				inner += '<div class="govuk-checkboxes" data-module="govuk-checkboxes">';
+
+					for(var i = 0; i < itp.q[prop].options.length; i++){
+						var checked = "";
+						if(itp.q[prop].options[i].checked){checked = "checked";}
+						
+						inner += '<div class="govuk-checkboxes__item">';
+						inner += '<input onclick="checkboxClick(\''+prop +'-'+ i+'\')" class="govuk-checkboxes__input"  id="'+prop +'-'+ i+'" name="'+prop +'-'+ i+'" type="checkbox" value="'+itp.q[prop].options[i].answer+'" '+checked+'>';
+						inner += '<label class="govuk-label govuk-checkboxes__label" for="'+prop +'-'+ i+'">';
+						inner += itp.q[prop].options[i].answer;
+						inner += '</label>';
+						inner += '<div id="'+prop +'-'+ i+'-hint" class="govuk-hint govuk-checkboxes__hint">';
+						inner += itp.q[prop].options[i].hint;
+						inner += '</div>';
+						inner += '</div>';
+					}
+
+				inner += '</div>';
+				inner += '</fieldset>';
+				inner += '</div>';
+
+				element = document.getElementById("gogoFieldset");
+				element.innerHTML += inner;
+			}
+
+			inner = "";
+
+			if(itp.q[prop].hasOwnProperty("help") && itp.q[prop].help){
+				inner += `
+				<details class="govuk-details" data-module="govuk-details">
+				<summary class="govuk-details__summary">
+					<span class="govuk-details__summary-text">
+					Help
+					</span>
+				</summary>
+				<div class="govuk-details__text">
+					`+itp.q[prop].help+`
+				</div>
+				</details>
+				`;
+			}
+
+
+
+
+
+			element = document.getElementById("gogoFieldset");
+			element.innerHTML += inner;
+
+
+			
+			if(itp.q[prop].hasOwnProperty("hidden")){
+				if(itp.q[prop].hidden === true ){
+					
+					var xhide = document.getElementById(prop);
+					//log("Test: " + prop);
+					//x.style.display = "block";
+					xhide.style.display = "none";
+					
+				}
+			}
+
+			cnt++;
+		}
+
+		
+	}
+	inner ="";
+
+
+
+//	if(qID !== "medium_nonexecutive_directors_1"){
+
+		inner += `<br><br>
+		<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+			<div class="govuk-notification-banner__header">
+				<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+				Warning
+				</h2>
+			</div>
+			<div class="govuk-notification-banner__content">
+				<p class="govuk-notification-banner__heading">
+				Save your answers before you continue. 
+				</p>
+			</div>
+			</div>
+		`
+
+		element = document.getElementById("gogoFieldset");
+		element.innerHTML += inner;
+		
+
+
+
+
+}
+
+
+function checkboxClick(txt){
+
+	// Get the id of the question and the id of the checkbox button
+	checkedID = txt.split("-");
+	//alert(checkedID);
+
+	// See if checkbox is now checked or not
+	var checked = false;
+	if (document.getElementById(checkedID[0]+'-'+checkedID[1]).checked) {
+		checked = true;
+	}
+
+
+
+	// Set the checkbox checked data to true or false.
+	if (checked === true) {
+		itp.q[checkedID[0]].options[checkedID[1]].checked = true;
+	}else{
+		itp.q[checkedID[0]].options[checkedID[1]].checked = false;
+	}
+
+	// Show and hide form components
+	if(itp.q[checkedID[0]].options[checkedID[1]].hasOwnProperty("showonchecked")){
+		if (checked === true) {
+			var showonchecked = itp.q[checkedID[0]].options[checkedID[1]].showonchecked;
+			if(showonchecked){
+				//log(" --- " + checkedID[0]);
+				showonchecked = showonchecked.split(",");
+				for(var i = 0; i < showonchecked.length; i ++){
+					showonchecked[i] = showonchecked[i].trim();
+					xshow = document.getElementById(showonchecked[i]);
+					xshow.style.display = "block";
+					itp.q[showonchecked[i]].hidden = false;
+				}
+			}
+		}
+	}
+	if(itp.q[checkedID[0]].options[checkedID[1]].hasOwnProperty("hideonunchecked")){
+		if (checked === false) {
+			var hideonunchecked = itp.q[checkedID[0]].options[checkedID[1]].hideonunchecked;
+			if(hideonunchecked){
+				//log(" --- " + checkedID[0]);
+				hideonunchecked = hideonunchecked.split(",");
+				for(var i = 0; i < hideonunchecked.length; i ++){
+					hideonunchecked[i] = hideonunchecked[i].trim();
+					xshow = document.getElementById(hideonunchecked[i]);
+					xshow.style.display = "none";
+					itp.q[hideonunchecked[i]].hidden = true;
+				}
+			}
+		}
+	}
+
+}
+
+function radioClick(txt){
+	
+	// Get the id of the question and the id of the radion button
+	checkedID = txt.split("-");
+
+	// Update the form and the data with the next question based on the radio button selection - routing.
+	if(itp.q[checkedID[0]].options[checkedID[1]].hasOwnProperty("action")){
+		act = itp.q[checkedID[0]].options[checkedID[1]].action;
+		par = itp.q[checkedID[0]].options[checkedID[1]].param;
+		
+		// Update the form redirection
+		document.getElementById("gogoForm").action = "\\" + act + "?qid=" + par;
+
+		// Update the data. This is used when the page refreshes so the user does not need to click the radio button again.
+		itp.q[checkedID[0]].action = act;
+		itp.q[checkedID[0]].param = par;
+	}
+
+
+	// Reset the radio buttons checked to false.
+	for(var i = 0; i < itp.q[checkedID[0]].options.length; i++){
+		itp.q[checkedID[0]].options[i].checked = false;
+	}
+	itp.q[checkedID[0]].options[checkedID[1]].checked = true;
+
+	// Show and hide form components
+	if(itp.q[checkedID[0]].options[checkedID[1]].hasOwnProperty("show")){
+		var showhide = itp.q[checkedID[0]].options[checkedID[1]].show;
+		if(showhide){
+			showhide = showhide.split(",");
+			for(var i = 0; i < showhide.length; i ++){
+				showhide[i] = showhide[i].trim();
+				xshow = document.getElementById(showhide[i]);
+				xshow.style.display = "block";
+				itp.q[showhide[i]].hidden = false;
+			}
+		}
+	}
+
+	if(itp.q[checkedID[0]].options[checkedID[1]].hasOwnProperty("hide")){
+		var showhide = itp.q[checkedID[0]].options[checkedID[1]].hide;
+		if(showhide){
+			showhide = showhide.split(",");
+			for(var i = 0; i < showhide.length; i ++){
+				showhide[i] = showhide[i].trim();
+				xhide = document.getElementById(showhide[i]);
+				xhide.style.display = "none";
+				itp.q[showhide[i]].hidden = true;
+				
+				// Uncheck all the radio options from the hidden element
+				for(var n = 0; n < itp.q[showhide[i]].options.length; n ++){
+					itp.q[showhide[i]].options[n].checked = false;
+					document.getElementById(showhide[i] + "-" + n).checked = false;
+				}
+			}
+		}
+	}
+
+	itpSaveFormData();
+
+}
+
+function textAreaChange(txt){
+	
+	itp.q[txt].options.text = document.getElementById(txt).value;
+
+	itpSaveFormData();
+}
+
+function getSection(prop){
+
+	ret = "";
+
+
+
+	// Get the short name
+	ret = itp.q[prop].category;
+
+	// Get the full presentable name translation 
+	ret = itp.vars.cat[ret];
+
+	return ret;
+}
+
+
+// Get the URL parameters
+var queryString = window.location.search;
+var urlParams = new URLSearchParams(queryString);
+var qID = urlParams.get('qid');
+
+
+</script>
+
+<script src="/public/javascripts/json.js"></script>
+
+<script>
+
+if(qID){
+	
+}else{
+	qID = itp.page;
+}
+
+
+itpMain();
+
+  </script>
+
+
+				
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+
+
+
+  
+{% endblock %}
+

@@ -1,0 +1,286 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="">
+      <h1 class="govuk-heading-xl">
+        Schools/Academies
+      </h1>
+
+
+
+
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="weight">
+         Search
+        </label>
+        <div class="govuk-input__wrapper"><input class="govuk-input govuk-!-width-one-half     " id="weight" name="weight" type="search" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">
+            <svg class="gem-c-search__icon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <circle cx="12.0161" cy="11.0161" r="8.51613" stroke="currentColor" stroke-width="3"></circle>
+              <line x1="17.8668" y1="17.3587" x2="26.4475" y2="25.9393" stroke="currentColor" stroke-width="3"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <table >
+        <tr>
+          <td style="vertical-align: bottom; padding-right: 10px; ">
+            
+            <label class="govuk-label" for="sort">
+             RPA Status
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="" selected>All</option>
+              <option value="">In RPA</option>
+              <option value="">Not in RPA</option>
+              <option value="">Not eligible</option>
+            </select>
+          
+        </td>
+          <td style="vertical-align: bottom; padding-right: 10px; ">
+            
+            <label class="govuk-label" for="sort">
+             Rules
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="" selected>All</option>
+              <option value="">None</option>
+              <option value="">VA/Foundation</option>
+              <option value="">Other rule</option>
+            </select>
+          
+        </td>
+
+        <td style="vertical-align: bottom; padding-right: 10px; ">
+            
+          <label class="govuk-label" for="sort">
+           Added by
+          </label>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="" selected>All</option>
+            <option value="">Anne Green</option>
+            <option value="">John Doe</option>
+            <option value="">Joe Blogs</option>
+            <option value="">Nicola Hulland</option>
+          </select>
+        
+      </td>
+      <td style="vertical-align: bottom; padding-right: 10px; ">
+            
+        <label class="govuk-label" for="sort">
+         Opt-in date
+        </label>
+        <select class="govuk-select" id="sort" name="sort">
+          <option value="" selected>All</option>
+          <option value="">Anne Green</option>
+          <option value="">John Doe</option>
+          <option value="">Joe Blogs</option>
+          <option value="">Nicola Hulland</option>
+        </select>
+      
+    </td>
+ 
+        </tr>
+      </table>
+
+      <p>&nbsp</p>
+      <!-- p>Displaying 10 out of 15 transactions</p -->
+
+      <p class="govuk-body">32 results / 2 selected</p>
+
+      
+
+
+
+      <table class="govuk-table" id="tab1">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">&nbsp;</th>
+            
+            <th scope="col" class="govuk-table__header app-custom-class">URN</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+
+            <th scope="col" class="govuk-table__header app-custom-class">Opt-in date</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Rules</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Added by</th>
+            <th scope="col" class="govuk-table__header app-custom-class">RPA status</th>
+
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste1" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste1">
+                </label>
+              </div>
+            </td>
+            <th scope="row" class="govuk-table__header"><a href="#">23456</a></th>
+            <td class="govuk-table__cell">Wayne Enterprises <br><span class="govuk-body-s">Gotham City</span></td>
+            
+            <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--red">
+                <span id="tagRejected">NOT IN RPA</span>
+              </strong>
+            </td>
+            
+
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <!--div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste1" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste1">
+                </label>
+              </div-->
+            </td>
+            <th scope="row" class="govuk-table__header"><a href="#">290797</a></th>
+            <td class="govuk-table__cell">Cyberdyne Systems <br><span class="govuk-body-s">Fremont</span></td>
+            
+            <td class="govuk-table__cell">1 Apr 2024</td>
+            <td class="govuk-table__cell">VA/Foundation</td>
+            <td class="govuk-table__cell">Nicola Hulland</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--green">
+                <span id="tagApproved">IN RPA</span>
+              </strong>
+            </td>
+
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <!--div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste1" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste1">
+                </label>
+              </div-->
+            </td>
+            <th scope="row" class="govuk-table__header"><a href="#">123456</a></th>
+
+            <td class="govuk-table__cell">Weyland Yutani <br><span class="govuk-body-s">Liverpool</span></td>
+            <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                <span id="tagAwaiting">NOT ELIGIBLE</span>
+              </strong>
+            </td>
+
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste1" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste1">
+                </label>
+              </div>
+            </td>
+            <th scope="row" class="govuk-table__header"><a href="#">123456</a></th>
+
+            <td class="govuk-table__cell">St. Trinian's <br><span class="govuk-body-s">Remenham</span></td>
+            <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--red">
+                <span id="tagRejected">NOT IN RPA</span>
+              </strong>
+            </td>
+
+          </tr>
+          
+          
+
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <!--div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste1" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste1">
+                </label>
+              </div-->
+            </td>
+            <th scope="row" class="govuk-table__header"><a href="#">123456</a></th>
+
+            <td class="govuk-table__cell">Hogwarts School of Witchcraft and Wizardry <br><span class="govuk-body-s">Alnwick</span></td>
+
+            <td class="govuk-table__cell">1 Apr 2024</td>
+            <td class="govuk-table__cell">VA/Foundation</td>
+            <td class="govuk-table__cell">Nicola Hulland</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--green">
+                <span id="tagApproved">IN RPA</span>
+              </strong>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+
+      <nav class="govuk-pagination" role="navigation" aria-label="results">
+        <div class="govuk-pagination__prev">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+            <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+              <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+            </svg>
+            <span class="govuk-pagination__link-title">Previous</span></a>
+        </div>
+        <ul class="govuk-pagination__list">
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+              1
+            </a>
+          </li>
+          <li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+              2
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              3
+            </a>
+          </li>
+        </ul>
+        <div class="govuk-pagination__next">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+              <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+            </svg></a>
+        </div>
+      </nav>
+      
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Opt-in selection
+      </button>
+
+    </div>
+  </div>
+
+{% endblock %}

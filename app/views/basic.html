@@ -1,0 +1,94 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+
+        <form action="/rpt-form-religious-authority" method="post" novalidate>
+            
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        Does the trust benchmark its income and expenditure and that of its schools annually against that of similar trusts and schools? 
+                    </h1>
+                  </legend>
+                  <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="" onclick="clickyes()">
+                      <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="" onclick="clickno()">
+                      <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                        No
+                      </label>
+                    </div>
+                    
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="govuk-form-group" id="optio" style="display: none;">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--m" for="more-detail">
+                    Tell us how you're planning to address this   
+                  </label>
+                </h1>
+                <div id="more-detail-hint" class="govuk-hint">
+                  
+                </div>
+                <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+              </div>
+
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <!--a href="/rpt-transactions" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Save and exit
+        </a-->
+      </div>
+
+
+
+      </form>
+      
+    </div>
+    
+  
+  </div>
+</main>
+</div>
+
+
+<script>
+
+    function clickyes(){
+        $("#optio").css("display", "block")
+    }
+
+    function clickno(){
+        $("#optio").css("display", "none")
+    }
+</script>
+
+
+{% endblock %}
