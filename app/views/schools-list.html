@@ -119,6 +119,8 @@
             <th scope="col" class="govuk-table__header app-custom-class">Opt-in date</th>
             <th scope="col" class="govuk-table__header app-custom-class">Rules</th>
             <th scope="col" class="govuk-table__header app-custom-class">Added by</th>
+            <th scope="col" class="govuk-table__header app-custom-class">School type</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Religious character</th>
             <th scope="col" class="govuk-table__header app-custom-class">RPA status</th>
 
           </tr>
@@ -139,6 +141,8 @@
             <td class="govuk-table__cell"> - </td>
             <td class="govuk-table__cell"> - </td>
             <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell"> Public </td>
+            <td class="govuk-table__cell"> None </td>
             <td class="govuk-table__cell">
               <strong class="govuk-tag govuk-tag--red">
                 <span id="tagRejected">NOT IN RPA</span>
@@ -162,6 +166,8 @@
             <td class="govuk-table__cell">1 Apr 2024</td>
             <td class="govuk-table__cell">VA/Foundation</td>
             <td class="govuk-table__cell">Nicola Hulland</td>
+            <td class="govuk-table__cell"> Public </td>
+            <td class="govuk-table__cell"> None </td>
             <td class="govuk-table__cell">
               <strong class="govuk-tag govuk-tag--green">
                 <span id="tagApproved">IN RPA</span>
@@ -184,6 +190,8 @@
             <td class="govuk-table__cell"> - </td>
             <td class="govuk-table__cell"> - </td>
             <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell"> Public </td>
+            <td class="govuk-table__cell"> None </td>
             <td class="govuk-table__cell">
               <strong class="govuk-tag govuk-tag--grey">
                 <span id="tagAwaiting">NOT ELIGIBLE</span>
@@ -206,6 +214,8 @@
             <td class="govuk-table__cell"> - </td>
             <td class="govuk-table__cell"> - </td>
             <td class="govuk-table__cell"> - </td>
+            <td class="govuk-table__cell"> Public </td>
+            <td class="govuk-table__cell"> None </td>
             <td class="govuk-table__cell">
               <strong class="govuk-tag govuk-tag--red">
                 <span id="tagRejected">NOT IN RPA</span>
@@ -232,6 +242,8 @@
             <td class="govuk-table__cell">1 Apr 2024</td>
             <td class="govuk-table__cell">VA/Foundation</td>
             <td class="govuk-table__cell">Nicola Hulland</td>
+            <td class="govuk-table__cell"> Public </td>
+            <td class="govuk-table__cell"> None </td>
             <td class="govuk-table__cell">
               <strong class="govuk-tag govuk-tag--green">
                 <span id="tagApproved">IN RPA</span>
@@ -275,10 +287,64 @@
             </svg></a>
         </div>
       </nav>
+
+        
+
+
+
+          
+
       
-      <button type="submit" class="govuk-button" data-module="govuk-button">
-        Opt-in selection
-      </button>
+
+
+      <h2 class="govuk-heading-m">Opt-in rule and start date</h2>
+
+      <table>
+        
+        <tr>
+          <td VALIGN="top" style="border: 0 solid black;">
+            <label class="govuk-label" for="sort">
+              Rule
+            </label>
+            <select class="govuk-select" id="sort" name="sort" style="margin-right:20px">
+              <option value="published">Rule 1</option>
+              <option value="updated" selected>VA/Foundation</option>
+              <option value="views">Rule 3</option>
+            </select>
+          </td>
+          <td VALIGN="bottom" style="border: 0x solid black;">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </td>
+          <td VALIGN="bottom" style="border: 0 solid black;">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Opt-in selection
+            </button>
+          </td>
+        </tr>
+      </table>
 
     </div>
   </div>
