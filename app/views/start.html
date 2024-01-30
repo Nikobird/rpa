@@ -30,12 +30,12 @@
 <br><br>
         <div class="govuk-button-group">
         <a href="/intro" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button" id="startButton" onclick="itpDeleteFormData()">
-          Join RPA
+          <span id="cta1" style="display: inline;">Join or log in to RPA</span> <span id="cta2" style="display: none;">Join RPA or view certificate</span>
           <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
             <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
           </svg></a>
 
-          <a class="govuk-link" href="/intro">View certificate</a>
+          <!-- a class="govuk-link" href="/intro">View certificate</a -->
 
         </div>
         <br><br>
@@ -70,8 +70,10 @@
 
 
   
+<hr>
 
-
+<p><a href="#" onclick="cta1(); ">Version 1</a></p>
+<p><a href="#" onclick="cta2(); ">Version 2</a></p>
 
 
 
@@ -148,6 +150,18 @@
 
 
   <script>
+
+    function cta1(){
+      //alert("dd");
+      $("#cta1").css("display", "inline");
+      $("#cta2").css("display", "none");
+    }
+
+    function cta2(){
+      //alert("dd");
+      $("#cta2").css("display", "inline");
+      $("#cta1").css("display", "none");
+    }
 
 
   </script>
