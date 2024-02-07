@@ -1,0 +1,157 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Join RPA
+      </h1>
+
+
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Which schools/academies should join RPA?
+            </h1>
+          </legend>
+          <div id="waste-hint" class="govuk-hint">
+            
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Wayne Enterprises &nbsp; 234561
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                St. Trinian's  &nbsp;   234561 
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+
+
+
+        
+
+     
+
+
+
+      
+          
+      
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select the rules that apply to your settings 
+            </h1>
+          </legend>
+          <div id="" class="govuk-hint ">
+            It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> 
+            for your setting as this will determine the cover that you receive. 
+            Visit <a href="#">Get information about schools (opens in new tab)</a> to see your school type and religious character. 
+            If your setting is a church academy (academy occupies property which is made available by a Diocese or other Church trustees), 
+            select 'Church academy rules'. 
+            
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                Standard rules 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                Church academy rules  
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Enter start date 
+            </h1>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            The start date must be no earlier than 3 months before today's date. 
+            If you have a commercial insurance policy in place, the date must be the day after this expires. 
+            For example, if your current insurance expires on 31 March, the RPA start date must be 1 April. 
+            This will ensure continuous cover and avoid any overlap.  
+            Cover will start from the date you enter, and payments will be deducted from your funding allocation from this date.  
+          </div>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <p>&nbsp;</p>
+
+
+
+
+      <div class="govuk-button-group">
+        <a href="/check-multi" type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+          </a>
+          <a href="/schools-list" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Cancel
+          </a>
+          
+    
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
