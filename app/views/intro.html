@@ -9,15 +9,51 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        DfE sign-in
-      </h1>
 
-      <p class="govuk-body">
-        You need to have an account with the DfE sign-in service to access the form.  If you have not used DfE sign-in before, 
-        you will need to <a href="#">create a DfE sign-in account</a> that is linked to your organisational setting.  
 
-    </p>
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              What do you want to do?
+            </h1>
+          </legend>
+          <div id="changedName-hint" class="govuk-hint">
+            You need to have an account with the DfE sign-in service to access the form.  If you have not used DfE sign-in before, 
+            you will need to <a href="#">create a DfE sign-in account</a> that is linked to your organisational setting.  
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england" onclick="clickSingle()">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                Join or log in as a school or single academy trust
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland" onclick="clickMulti()">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                Log in as a local authority or multi-academy trust
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio" value="wales" onclick="clickCert()">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+                Download multiple schools' certificates
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+
+
+
+<div id="multisection" style="display:none">
+
+
 
     <h2 class="govuk-heading-m">
       Local authorities and multi-academy trusts (MATs) 
@@ -33,10 +69,6 @@
           
           
   </p>
-
-      <!-- p class="govuk-body">
-        If you're a multi-academy trust (MAT), sign in as a MAT to get your trust and individual academy certificates.   
-      </p -->
 
       <details class="govuk-details">
         <summary class="govuk-details__summary">
@@ -69,9 +101,7 @@
     <a href="https://help.signin.education.gov.uk/contact-us">Contact us</a> if you have any questions or problems signing up. 
   </p>
 
-  <div class="govuk-inset-text">
-    Signing in as a  local authority or MAT does not commit you to signing up all of your schools to RPA membership
-  </div>
+</div>
 
 
     <a href="/schools-list" type="submit" class="govuk-button" data-module="govuk-button">
@@ -106,6 +136,19 @@
 
 
   <script>
+
+    function clickSingle(){
+      $("#multisection").css("display","none");
+    }
+
+    function clickMulti(){
+      $("#multisection").css("display","block");
+    }
+
+    function clickCert(){
+      $("#multisection").css("display","none");
+    }
+
 
 
   </script>
