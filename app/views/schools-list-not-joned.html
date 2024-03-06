@@ -14,9 +14,13 @@
         Join RPA
       </h1>
 
+      <div id="selectSingle" style="display: none;">
+        <p class="govuk-body-l">
+          St. Trinian's  &nbsp;   234561  
+        </p>
+      </div>
 
-
-
+      <div id="selectMulti">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -44,7 +48,7 @@
           </div>
         </fieldset>
       </div>
-
+    </div>
 
 
 
@@ -62,7 +66,7 @@
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Select rules that apply
+              Select membership rules that apply
             </h1>
           </legend>
           <div id="" class="govuk-hint ">
@@ -102,8 +106,9 @@
           </legend>
           <div id="passport-issued-hint" class="govuk-hint">
             Cover will start from the date you enter, and payments will be deducted from your funding allocation from this date. 
-            If you have a commercial insurance policy in place, the date must be the day after this expires. 
-            This will ensure continuous cover and avoid any overlap.
+            
+            If you have a commercial insurance policy in place, the RPA start date must be the day after this expires to ensure that you have continuous cover.
+            
           </div>
           <div class="govuk-date-input" id="passport-issued">
             <div class="govuk-date-input__item">
@@ -149,7 +154,36 @@
           
     
       </div>
+
+
+
+      <hr>
+
+      <p>Ignore everything below the line</p>
+
+      <a href="#" onclick="selectSingle()">Single academy</a>
+      <br>
+      <a href="#" onclick="selectMulti()">Multiple academy</a>
+
+
+
     </div>
   </div>
+
+<script>
+  //selectSingle
+  function selectSingle(){
+    $("#selectSingle").css("display","block");
+    $("#selectMulti").css("display","none");
+  }
+
+  function selectMulti(){
+    $("#selectSingle").css("display","none");
+    $("#selectMulti").css("display","block");
+  }
+
+
+</script>
+
 
 {% endblock %}
