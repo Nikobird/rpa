@@ -1,0 +1,133 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+      <div class="govuk-form-group" id="qq1" style="display: block;">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+                Have you got a local authority or MAT account?
+            </h1>
+          </legend>
+          <div id="changedName-hint" class="govuk-hint">
+             
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england" onclick="clickSingle()">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland" onclick="clickMulti()">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                No
+              </label>
+            </div>
+
+
+          </div>
+        </fieldset>
+      </div>
+
+      <p class="govuk-body">
+      Signing in as local authority or MAT enables you to see all of the schools linked to your organisation. You can: 
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>sign up your schools to RPA</li> 
+      <li>download your schools' certificates</li> 
+      <li>download your trust-level certificate (MATs)</li>
+    </ul>    
+    
+
+
+
+
+
+<div id="multisection" style="display:none">
+
+
+
+
+    <h2 class="govuk-heading-m">
+        How to create a local authority or MAT account 
+    </h2>
+
+    <p class="govuk-body">
+              
+        To create an account for your local authority or MAT:
+      </p>
+      <ol class="govuk-list govuk-list--number">
+        <li>Log in to <a href="https://services.signin.education.gov.uk/">DfE sign-in</a> </li>
+        <li>Select the 'Organisations' tab  </li>
+        <li>Under Related actions, select 'Request access to an organisation' </li>
+        <li>Enter the name of your local authority or trust   </li>
+        <li>Select your organisation from the list and select Confirm  </li>
+        <li>Once you've received email confirmation that this has been approved, log back in to DfE sign-in  </li>
+        <li>Under Related actions, select 'Add services to my account'  </li>
+        <li>Select your trust organisation  </li>
+        <li>Choose RPA service   </li>
+      </ol>
+
+
+
+
+
+</div>
+
+
+    <a href="/schools-list" type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+    </a>
+
+        
+    </div>
+
+
+  </div>
+
+
+  <script>
+
+    function version1(){
+      $("#qq1").css("display","block");
+      $("#qq2").css("display","none");
+      $("#multisection").css("display","none");
+    }
+    
+    function version2(){
+      $("#qq1").css("display","none");
+      $("#qq2").css("display","block");
+      $("#multisection").css("display","none");
+    }
+
+    function clickSingle(){
+      $("#multisection").css("display","none");
+    }
+
+    function clickMulti(){
+      $("#multisection").css("display","block");
+    }
+
+    function clickCert(){
+      $("#multisection").css("display","block");
+    }
+
+
+
+  </script>
+
+{% endblock %}
