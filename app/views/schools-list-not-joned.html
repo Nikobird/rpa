@@ -62,7 +62,7 @@
           
       
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group" id="membRulesSingle" style="display: block;">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
@@ -88,6 +88,47 @@
               <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
                 Church academy rules  
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group" id="membRulesLams" style="display: none;">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select membership rules that apply
+            </h1>
+          </legend>
+          <div id="" class="govuk-hint ">
+
+            It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> 
+            for your setting as this will determine the cover that you receive. Visit <a href="#">Get information about schools (opens in new tab)</a> 
+            to see your school type.
+
+            <br><br>
+            There are 3 sets of rules available due to the complexities of property ownership and staff employment.  
+            
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="BwhereDoYouLive" name="BwhereDoYouLive" type="radio" value="england">
+              <label class="govuk-label govuk-radios__label" for="BwhereDoYouLive">
+                Community schools, nursery schools, community special schools and pupil referral units 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="BwhereDoYouLive-2" name="BwhereDoYouLive" type="radio" value="scotland">
+              <label class="govuk-label govuk-radios__label" for="BwhereDoYouLive-2">
+                Voluntary aided, foundation and foundation special schools
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="BwhereDoYouLive-a2" name="BwhereDoYouLive" type="radio" value="scotlanad">
+              <label class="govuk-label govuk-radios__label" for="BwhereDoYouLive-a2">
+                Voluntary controlled schools
               </label>
             </div>
 
@@ -161,10 +202,11 @@
 
       <p>Ignore everything below the line</p>
 
-      <a href="#" onclick="selectSingle()">Single academy</a>
+      <a href="#Single_academy" onclick="selectSingle()">Single academy</a>
       <br>
-      <a href="#" onclick="selectMulti()">Multiple academy</a>
-
+      <a href="#Multipl_academy" onclick="selectMulti()">Multiple academy</a>
+      <br>
+      <a href="#LAMS_PRU" onclick="selectLams()">LAMs and PRU</a>
 
 
     </div>
@@ -175,13 +217,23 @@
   function selectSingle(){
     $("#selectSingle").css("display","block");
     $("#selectMulti").css("display","none");
+    $("#membRulesSingle").css("display","block");
+    $("#membRulesLams").css("display","none");
   }
 
   function selectMulti(){
     $("#selectSingle").css("display","none");
     $("#selectMulti").css("display","block");
+    $("#membRulesSingle").css("display","block");
+    $("#membRulesLams").css("display","none");
   }
 
+  function selectLams(){
+    $("#selectSingle").css("display","block");
+    $("#selectMulti").css("display","none");
+    $("#membRulesSingle").css("display","none");
+    $("#membRulesLams").css("display","block");
+  }
 
 </script>
 
