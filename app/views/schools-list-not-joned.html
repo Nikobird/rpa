@@ -36,11 +36,51 @@
             </h1>
           </legend>
           <div id="" class="govuk-hint ">
-            It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> 
-            for your setting as this will determine the cover that you receive. 
-            Visit <a href="#">Get information about schools (opens in new tab)</a> to see your school type and religious character. 
-            If your setting is a church academy (academy occupies property which is made available by a Diocese or other Church trustees), 
-            select 'Church academy rules'. 
+
+
+
+            It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> for your setting as this will determine the cover 
+            that they receive. Visit <a href="#">Get information about schools (opens in new tab)</a> to see your school type and religious character. 
+            If your setting is a church academy (academy occupies property which is made available by a 
+            Diocese or other Church trustees), select 'Church academy rules'.
+
+            
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                Standard rules 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                Church academy rules  
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group" id="membRulesMulti" style="display: none;">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select membership rules that apply
+            </h1>
+          </legend>
+          <div id="" class="govuk-hint ">
+
+
+            It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> for your settings as this will determine the cover 
+            that they receive. Visit <a href="#">Get information about schools (opens in new tab)</a> to see school type and religious character. 
+            If the settings you're adding to the RPA scheme are church academies (academy occupies property which is made available by a 
+            Diocese or other Church trustees), select 'Church academy rules'.
+
+
+
             
           </div>
           <div class="govuk-radios" data-module="govuk-radios">
@@ -102,6 +142,44 @@
         </fieldset>
       </div>
 
+      <div class="govuk-form-group" id="membRulesLA" style="display: none;">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select membership rules that apply
+            </h1>
+          </legend>
+          <div id="" class="govuk-hint ">
+
+
+            It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> for your settings as this will 
+            determine the cover that they receive. Visit <a href="#">Get information about schools (opens in new tab)</a> to see school types.
+            
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="BwhereDoYouLive" name="BwhereDoYouLive" type="radio" value="england">
+              <label class="govuk-label govuk-radios__label" for="BwhereDoYouLive">
+                Community schools, nursery schools, community special schools and pupil referral units 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="BwhereDoYouLive-2" name="BwhereDoYouLive" type="radio" value="scotland">
+              <label class="govuk-label govuk-radios__label" for="BwhereDoYouLive-2">
+                Voluntary aided, foundation and foundation special schools
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="BwhereDoYouLive-a2" name="BwhereDoYouLive" type="radio" value="scotlanad">
+              <label class="govuk-label govuk-radios__label" for="BwhereDoYouLive-a2">
+                Voluntary controlled schools
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
 
 
       <div class="govuk-form-group">
@@ -114,8 +192,8 @@
           <div id="passport-issued-hint" class="govuk-hint">
             Cover will start from the date you enter, and payments will be deducted from your funding allocation from this date. 
             
-            If you have a commercial insurance policy in place, the RPA start date must be the day after this expires to ensure that you have continuous cover.
             
+            If you have a commercial insurance policy in place, the RPA start date must be the day after this expires to ensure continuous cover. 
           </div>
           <div class="govuk-date-input" id="passport-issued">
             <div class="govuk-date-input__item">
@@ -216,25 +294,34 @@
       <a href="#Multipl_academy" onclick="selectMulti()">Multiple academy</a>
       <br>
       <a href="#LAMS_PRU" onclick="selectLams()">LAMs and PRU</a>
+      <br>
+      <a href="#LA" onclick="selectLA()">Local authority</a>
 
 
     </div>
   </div>
 
 <script>
-  //selectSingle
+  
   function selectSingle(){
     $("#selectSingle").css("display","block");
     $("#selectMulti").css("display","none");
     $("#membRulesSingle").css("display","block");
     $("#membRulesLams").css("display","none");
+    $("#membRulesMulti").css("display","none");
+    $("#membRulesLA").css("display","none");
   }
 
   function selectMulti(){
     $("#selectSingle").css("display","none");
     $("#selectMulti").css("display","block");
-    $("#membRulesSingle").css("display","block");
+    $("#membRulesSingle").css("display","none");
     $("#membRulesLams").css("display","none");
+    $("#membRulesMulti").css("display","block");
+    $("#membRulesLA").css("display","none");
+
+    //rulestextmulti
+    //rulestextsingle
   }
 
   function selectLams(){
@@ -242,6 +329,17 @@
     $("#selectMulti").css("display","none");
     $("#membRulesSingle").css("display","none");
     $("#membRulesLams").css("display","block");
+    $("#membRulesMulti").css("display","none");
+    $("#membRulesLA").css("display","none");
+  }
+
+  function selectLA(){
+    $("#selectSingle").css("display","block");
+    $("#selectMulti").css("display","none");
+    $("#membRulesSingle").css("display","none");
+    $("#membRulesLams").css("display","none");
+    $("#membRulesMulti").css("display","none");
+    $("#membRulesLA").css("display","block");
   }
 
 </script>
