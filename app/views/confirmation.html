@@ -26,27 +26,76 @@
           <p class="govuk-body">We've sent a confirmation email to joe.blogs@example.com.</p>
 
 
-          <!-- p class="govuk-body"><a href="#">Download membership certificate </a></p -->
+          
+          <div class="standardVersion">
+            <div class="govuk-button-group">
+              <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
+                Download membership certificate 
+                </a>      
+                
+            </div>
 
-          <div class="govuk-button-group">
-            <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
-              Download membership certificate 
-              </a>
-        
-              
-        
-          </div>
+            <h2 class="govuk-heading-m">What happens next</h2>
 
-          <h2 class="govuk-heading-m">What happens next</h2>
-          <p class="govuk-body">
-            ESFA will deduct membership payment from your funding allocation as detailed in the <a href="#">timetable on GOV.UK</a>.  
-          </p>
+            
+              <p class="govuk-body">
+                ESFA will deduct membership payment from your funding allocation as detailed in the <a href="#">timetable on GOV.UK</a>.  
+              </p>
+
+            </div>
+
+
+            <div class="LAVersion" style="display: none;">
+              <div class="govuk-button-group">
+                <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
+                  Download membership certificates
+                  </a>      
+                  
+              </div>
+  
+              <h2 class="govuk-heading-m">What happens next</h2>
+              <p class="govuk-body">
+                ESFA will collect this money by deductions from your Dedicated Schools Grant (DSG) as per the 
+                <a href="https://www.gov.uk/search/guidance-and-regulation?parent=/education/local-authority-schools-funding&topic=738e53f4-97df-4d9e-a2f1-8f733d526d84&order=updated-newest">GOV.UK guidance and regulation pages</a>.   
+              </p>
+
+            </div>
+            
+
+
+
+            <p class="govuk-body">&nbsp;</p>
+    
+            <hr>
+            
+            <p class="govuk-body">Ignore everything below here</p>
+            
+            <a href="#" onclick="standardVersion()">Standard</a>
+            <br>
+            <a href="#" onclick="LAVersion()">Local authority</a>
+
   
         </div>
       </div>
     </main>
   </div>
 
+
+  <script>
+
+    function standardVersion(){
+      $(".standardVersion").css("display","block")
+      $(".LAVersion").css("display","none")
+
+
+      
+    }
+    function LAVersion(){
+      $(".standardVersion").css("display","none")
+      $(".LAVersion").css("display","block")
+    }
+
+  </script>
 
 
 
