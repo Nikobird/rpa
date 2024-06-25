@@ -15,12 +15,18 @@
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
-              Organisation name &nbsp;
+              Parent organisation name &nbsp;
             </h1>
           </legend>
-          <div id="" class="govuk-hint ">
+          <div id="" class="govuk-hint standardHint">
             <a href="/trust-details" class="govuk-body govuk-link govuk-link--no-visited-state">
-              View Organisation name's details and certificates
+              View Parent organisation name's details and certificates
+            </a>
+
+          </div>
+          <div id="" class="govuk-hint LAHint"style="display:none">
+            <a href="/trust-details" class="govuk-body govuk-link govuk-link--no-visited-state">
+              View Parent organisation name's details
             </a>
 
           </div>
@@ -112,14 +118,46 @@
       <div class="govuk-button-group">
         <a href="/schools-list-not-joned" type="submit" class="govuk-button" data-module="govuk-button">
           Add schools to RPA
-          </a>
-          <!-- a href="/schools-list" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            View joined
-          </a -->
-          
-    
+        </a>
+        <a href="/download" type="submit" class="govuk-button govuk-button--secondary " data-module="govuk-button">
+          Download school certificates
+        </a>
       </div>
+
+
+      <p class="govuk-body">&nbsp;</p>
+    
+            <hr>
+            
+            <p class="govuk-body">Ignore everything below here</p>
+            
+            <a href="#" onclick="standardHint()">Standard</a>
+            <br>
+            <a href="#" onclick="LAHint()">Local authority</a>
       </div>
   </div>
+
+
+
+
+
+  <script>
+
+    function standardHint(){
+      $(".standardHint").css("display","block")
+      $(".LAHint").css("display","none")
+
+
+      
+    }
+    function LAHint(){
+      $(".standardHint").css("display","none")
+      $(".LAHint").css("display","block")
+    }
+
+  </script>
+
+
+
 
 {% endblock %}
