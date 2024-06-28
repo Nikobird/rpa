@@ -15,6 +15,9 @@
     <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+
+
+
           <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">
               Application complete
@@ -27,7 +30,7 @@
 
 
           
-          <div class="standardVersion">
+          <div class="academyVersion">
             <div class="govuk-button-group">
               <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
                 Download membership certificate 
@@ -36,13 +39,32 @@
             </div>
 
             <h2 class="govuk-heading-m">What happens next</h2>
+            
+              <p class="govuk-body">
+                ESFA will collect the money by deductions from your General Annual Grant (GAG) as detailed in the 
+                <a href="https://www.gov.uk/government/collections/academies-funding-payments-and-compliance">academies planning calendar</a>.
+              </p>
+
+          </div>
+
+          <div class="MATVersion" style="display: none;">
+            <div class="govuk-button-group">
+              <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
+                Download membership certificates
+                </a>      
+                
+            </div>
+
+            <h2 class="govuk-heading-m">What happens next</h2>
 
             
               <p class="govuk-body">
-                ESFA will deduct membership payment from your funding allocation as detailed in the <a href="#">timetable on GOV.UK</a>.  
+                 
+                ESFA will collect the money by deductions from your General Annual Grant (GAG) as detailed in the 
+                <a href="https://www.gov.uk/government/collections/academies-funding-payments-and-compliance">academies planning calendar</a>.
               </p>
 
-            </div>
+          </div>
 
 
             <div class="LAVersion" style="display: none;">
@@ -55,8 +77,11 @@
   
               <h2 class="govuk-heading-m">What happens next</h2>
               <p class="govuk-body">
-                ESFA will collect this money by deductions from your Dedicated Schools Grant (DSG) as per the 
-                <a href="https://www.gov.uk/search/guidance-and-regulation?parent=/education/local-authority-schools-funding&topic=738e53f4-97df-4d9e-a2f1-8f733d526d84&order=updated-newest">GOV.UK guidance and regulation pages</a>.   
+
+                ESFA will collect the money by deductions from your Dedicated Schools Grant (DSG) as detailed in the 
+                <a href="https://www.gov.uk/search/guidance-and-regulation?parent=/education/local-authority-schools-funding&topic=738e53f4-97df-4d9e-a2f1-8f733d526d84&order=updated-newest">local authority planning calendar</a>.
+
+
               </p>
 
             </div>
@@ -70,7 +95,9 @@
             
             <p class="govuk-body">Ignore everything below here</p>
             
-            <a href="#" onclick="standardVersion()">Standard</a>
+            <a href="#" onclick="academyVersion()">Academy</a>
+            <br>
+            <a href="#" onclick="MATVersion()">MAT</a>
             <br>
             <a href="#" onclick="LAVersion()">Local authority</a>
 
@@ -83,15 +110,19 @@
 
   <script>
 
-    function standardVersion(){
-      $(".standardVersion").css("display","block")
-      $(".LAVersion").css("display","none")
-
-
-      
+    function academyVersion(){
+      $(".academyVersion").css("display","block")
+      $(".MATVersion").css("display","none")
+      $(".LAVersion").css("display","none")      
+    }
+    function MATVersion(){
+      $(".academyVersion").css("display","none")
+      $(".MATVersion").css("display","block")
+      $(".LAVersion").css("display","none")      
     }
     function LAVersion(){
-      $(".standardVersion").css("display","none")
+      $(".academyVersion").css("display","none")
+      $(".MATVersion").css("display","none")
       $(".LAVersion").css("display","block")
     }
 
