@@ -85,6 +85,23 @@
               </p>
 
             </div>
+
+            <div class="LAMSPRUVersion" style="display: none;">
+              <div class="govuk-button-group">
+                <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
+                  Download membership certificate
+                  </a>      
+                  
+              </div>
+  
+              <h2 class="govuk-heading-m">What happens next</h2>
+              <p class="govuk-body">
+
+                Your local authority will confirm how deductions will be made from your funding allocation.
+
+              </p>
+
+            </div>
             
 
 
@@ -100,7 +117,8 @@
             <a href="#" onclick="MATVersion()">MAT</a>
             <br>
             <a href="#" onclick="LAVersion()">Local authority</a>
-
+            <br>
+            <a href="#" onclick="LAMSPRUVersion()">LAMS/PRU</a>
   
         </div>
       </div>
@@ -111,19 +129,28 @@
   <script>
 
     function academyVersion(){
-      $(".academyVersion").css("display","block")
-      $(".MATVersion").css("display","none")
-      $(".LAVersion").css("display","none")      
+      $(".academyVersion").css("display","block");
+      $(".MATVersion").css("display","none");
+      $(".LAVersion").css("display","none");
+      $(".LAMSPRUVersion").css("display","none");
     }
     function MATVersion(){
-      $(".academyVersion").css("display","none")
-      $(".MATVersion").css("display","block")
-      $(".LAVersion").css("display","none")      
+      $(".academyVersion").css("display","none");
+      $(".MATVersion").css("display","block");
+      $(".LAVersion").css("display","none");
+      $(".LAMSPRUVersion").css("display","none");
     }
     function LAVersion(){
-      $(".academyVersion").css("display","none")
-      $(".MATVersion").css("display","none")
-      $(".LAVersion").css("display","block")
+      $(".academyVersion").css("display","none");
+      $(".MATVersion").css("display","none");
+      $(".LAVersion").css("display","block");
+      $(".LAMSPRUVersion").css("display","none");
+    }
+    function LAMSPRUVersion(){
+      $(".academyVersion").css("display","none");
+      $(".MATVersion").css("display","none");
+      $(".LAVersion").css("display","none");
+      $(".LAMSPRUVersion").css("display","block");
     }
 
   </script>
