@@ -1,0 +1,49 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<!-- views/select-group.html -->
+<form method="post" action="/set-user-group">
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        Select your user group
+      </legend>
+      <legend class="govuk-hint">
+        This is for testing purposes only.
+      </legend>
+      <div class="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="group1" name="userGroup" type="radio" value="group1">
+          <label class="govuk-label govuk-radios__label" for="group1">Multi-academy trust (MAT)</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="group2" name="userGroup" type="radio" value="group2">
+          <label class="govuk-label govuk-radios__label" for="group2">Local authority</label>
+        </div>
+         <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="group3" name="userGroup" type="radio" value="group3">
+          <label class="govuk-label govuk-radios__label" for="group3">Single academy</label>
+        </div>
+          <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="group4" name="userGroup" type="radio" value="group4">
+          <label class="govuk-label govuk-radios__label" for="group4">Local authority maintainted schools (LAMs)</label>
+        </div>
+          <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="group5" name="userGroup" type="radio" value="group5">
+          <label class="govuk-label govuk-radios__label" for="group5">Pupil referal unit (PRU)</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <button class="govuk-button" type="submit">Continue</button>
+</form>
+
+{% endblock %}

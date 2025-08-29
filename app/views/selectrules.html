@@ -1,0 +1,121 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+
+ 
+{% endblock %}
+
+
+
+
+{% block content %}
+
+ {{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+
+
+   
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Select the membership rules that apply</h1>
+    {% if data['userGroup'] == 'group1' %}
+    <div class="govuk-hint">
+      It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> for your setting as this will determine the cover
+      that they receive. Visit <a href="#">Get information about schools (opens in new tab)</a> to see your school type and religious character.
+      If your setting is a church academy (academy occupies property which is made available by a Diocese or other Church trustees), select 'Church academy rules'.
+    </div>
+    <br>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend">Wayne Enterprises 234561</legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="wayne-1" name="wayne" type="radio" value="church-academy">
+            <label class="govuk-label govuk-radios__label" for="wayne-1">Church academy rules</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="wayne-2" name="wayne" type="radio" value="standard">
+            <label class="govuk-label govuk-radios__label" for="wayne-2">Standard rules</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend">St. Trinian's 234561</legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="trinian-1" name="trinian" type="radio" value="church-academy">
+            <label class="govuk-label govuk-radios__label" for="trinian-1">Church academy rules</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="trinian-2" name="trinian" type="radio" value="standard">
+            <label class="govuk-label govuk-radios__label" for="trinian-2">Standard rules</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    {% endif %}
+    {% if data['userGroup'] == 'group2' %}
+    <div class="govuk-hint">
+      It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> for your settings as this will
+      determine the cover that they receive. Visit <a href="#">Get information about schools (opens in new tab)</a> to see school types.
+      <br><br>
+      There are 3 sets of rules available due to the complexities of property ownership and staff employment.
+    </div>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend">Wayne Enterprises 234561</legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="wayne2-1" name="wayne2" type="radio" value="community-schools">
+            <label class="govuk-label govuk-radios__label" for="wayne2-1">Community schools, nursery schools, community special schools and pupil referral units</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="wayne2-2" name="wayne2" type="radio" value="voluntary-aided">
+            <label class="govuk-label govuk-radios__label" for="wayne2-2">Voluntary aided, foundation and foundation special schools</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="wayne2-3" name="wayne2" type="radio" value="voluntary-controlled">
+            <label class="govuk-label govuk-radios__label" for="wayne2-3">Voluntary controlled schools</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend">St. Trinian's 234561</legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="trinian2-1" name="trinian2" type="radio" value="church-academy">
+            <label class="govuk-label govuk-radios__label" for="trinian2-1">Church academy rules</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="trinian2-2" name="trinian2" type="radio" value="standard">
+            <label class="govuk-label govuk-radios__label" for="trinian2-2">Standard rules</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+      <div class="govuk-button-group">
+        <a href="/selectdate" type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+          </a>
+         
+          
+    
+      </div>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,90 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+
+ 
+{% endblock %}
+
+
+
+
+{% block content %}
+
+ {{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+       Select schools to join RPA 
+      </h1>
+
+ <div id="" class="govuk-hint "> Below is a list of all schools that are elible to join RPA. Select those that you'd like to sign up. 
+</div>
+      
+   <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+  
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="select-all" type="checkbox">
+        <label class="govuk-label govuk-checkboxes__label" for="select-all">
+          Select all
+        </label>
+      </div>
+      <div class="govuk-checkboxes__divider">or</div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="apple" name="fruits" type="checkbox" value="apple">
+        <label class="govuk-label govuk-checkboxes__label" for="apple">
+          Wayne Enterprises 234561
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="banana" name="fruits" type="checkbox" value="banana">
+        <label class="govuk-label govuk-checkboxes__label" for="banana">
+          St. Trinian's 234561
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+
+
+      <div class="govuk-button-group">
+        <a href="/selectrules" type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+          </a>
+         
+          
+    
+      </div>
+
+
+      <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const selectAllCheckbox = document.getElementById("select-all");
+    const checkboxes = document.querySelectorAll("input[name='fruits']");
+    selectAllCheckbox.addEventListener("change", function () {
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = selectAllCheckbox.checked;
+      });
+    });
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", function () {
+        // If any checkbox is unchecked, uncheck "Select all"
+        // If all are checked, check "Select all"
+        const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+        selectAllCheckbox.checked = allChecked;
+      });
+    });
+  });
+</script>
+{% endblock %}
+
