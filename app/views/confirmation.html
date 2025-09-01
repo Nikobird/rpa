@@ -27,10 +27,7 @@
             </div>
           </div>
           <p class="govuk-body">We've sent a confirmation email to joe.blogs@example.com.</p>
-
-
-          
-          <div class="academyVersion">
+      
             <div class="govuk-button-group">
               <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
                 Download membership certificate 
@@ -39,6 +36,9 @@
             </div>
 
             <h2 class="govuk-heading-m">What happens next</h2>
+
+            
+    {% if data['userGroup'] == 'group1' or data['userGroup'] == 'group3' %}
             
               <p class="govuk-body">
                 ESFA will collect the money by deductions from your General Annual Grant (GAG) as detailed in the 
@@ -46,55 +46,21 @@
               </p>
 
           </div>
+{% endif %}
 
-          <div class="MATVersion" style="display: none;">
-            <div class="govuk-button-group">
-              <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
-                Download membership certificates
-                </a>      
-                
-            </div>
+  {% if data['userGroup'] == 'group2' %}
 
-            <h2 class="govuk-heading-m">What happens next</h2>
-
-            
-              <p class="govuk-body">
-                 
-                ESFA will collect the money by deductions from your General Annual Grant (GAG) as detailed in the 
-                <a href="https://www.gov.uk/government/collections/academies-funding-payments-and-compliance">academies planning calendar</a>.
-              </p>
-
-          </div>
-
-
-            <div class="LAVersion" style="display: none;">
-              <div class="govuk-button-group">
-                <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
-                  Download membership certificates
-                  </a>      
-                  
-              </div>
-  
-              <h2 class="govuk-heading-m">What happens next</h2>
               <p class="govuk-body">
 
                 ESFA will collect the money by deductions from your Dedicated Schools Grant (DSG) as detailed in the 
                 <a href="https://www.gov.uk/search/guidance-and-regulation?parent=/education/local-authority-schools-funding&topic=738e53f4-97df-4d9e-a2f1-8f733d526d84&order=updated-newest">local authorities planning calendar</a>.
 
-
               </p>
-
             </div>
+            {% endif %}
 
-            <div class="LAMSPRUVersion" style="display: none;">
-              <div class="govuk-button-group">
-                <a href="/download" type="submit" class="govuk-button" data-module="govuk-button">
-                  Download membership certificate
-                  </a>      
-                  
-              </div>
-  
-              <h2 class="govuk-heading-m">What happens next</h2>
+    {% if data['userGroup'] == 'group4' or data['userGroup'] == 'group5' %}
+
               <p class="govuk-body">
 
                 Your local authority will confirm how deductions will be made from your funding allocation.
@@ -102,58 +68,8 @@
               </p>
 
             </div>
-            
+            {% endif %}
 
-
-
-            <p class="govuk-body">&nbsp;</p>
-    
-            <hr>
-            
-            <p class="govuk-body">Ignore everything below here</p>
-            
-            <a href="#" onclick="academyVersion()">Academy</a>
-            <br>
-            <a href="#" onclick="MATVersion()">MAT</a>
-            <br>
-            <a href="#" onclick="LAVersion()">Local authority</a>
-            <br>
-            <a href="#" onclick="LAMSPRUVersion()">LAMS/PRU</a>
-  
-        </div>
-      </div>
-    </main>
-  </div>
-
-
-  <script>
-
-    function academyVersion(){
-      $(".academyVersion").css("display","block");
-      $(".MATVersion").css("display","none");
-      $(".LAVersion").css("display","none");
-      $(".LAMSPRUVersion").css("display","none");
-    }
-    function MATVersion(){
-      $(".academyVersion").css("display","none");
-      $(".MATVersion").css("display","block");
-      $(".LAVersion").css("display","none");
-      $(".LAMSPRUVersion").css("display","none");
-    }
-    function LAVersion(){
-      $(".academyVersion").css("display","none");
-      $(".MATVersion").css("display","none");
-      $(".LAVersion").css("display","block");
-      $(".LAMSPRUVersion").css("display","none");
-    }
-    function LAMSPRUVersion(){
-      $(".academyVersion").css("display","none");
-      $(".MATVersion").css("display","none");
-      $(".LAVersion").css("display","none");
-      $(".LAMSPRUVersion").css("display","block");
-    }
-
-  </script>
 
 
 

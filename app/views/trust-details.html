@@ -116,6 +116,7 @@
               </dd>
             </div>
           </dl>
+    {% if data['userGroup'] == 'group1' %}
 
           <h2 class="govuk-heading-m">Membership certificates</h2>
 
@@ -126,6 +127,9 @@
                   <br><a href="#">2021 - 2022 (download)</a>
                   
           </p>
+
+          {% endif %}
+
           <a href="/schools-list" type="submit" class="govuk-button" data-module="govuk-button">
             Back
           </a>

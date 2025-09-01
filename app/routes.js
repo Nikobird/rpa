@@ -17,6 +17,15 @@ router.post('/set-user-group', function (req, res) {
   return res.redirect('/error');
 });
 
+router.get('/schools-listLD', function (req, res) {
+  const group = req.session.data.userGroup;
+  res.render('schools-listLD', {
+    group: group
+  });
+});
+
+
+
 // Add your routes here - above the module.exports line
 
 module.exports = router

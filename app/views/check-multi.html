@@ -17,86 +17,72 @@
             Details and declaration
           </h1>
 
+       
+{% if data['userGroup'] == 'group1' or data['userGroup'] == 'group2' %}
+{% if data['userGroup'] == 'group1' or data['userGroup'] == 'group2' %}
 
+  <h2 class="govuk-heading-m">Application details</h2>
 
-
-        <dl class="govuk-summary-list">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Membership rules
-            </dt>
-            <dd class="govuk-summary-list__value">
-                Standard rules
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#"> </a>
-            </dd>
-          </div>
+  <!-- Summary Card: Wayne Enterprises -->
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">Wayne Enterprises</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Membership start date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            5 January 1978
-          </dd>
+          <dt class="govuk-summary-list__key">Membership rules</dt>
+          <dd class="govuk-summary-list__value">Standard rules</dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#"> </a>
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> membership rules</span></a>
           </dd>
         </div>
-            
 
-            <div class="govuk-summary-list__row" id="">
-              <dt class="govuk-summary-list__key">
-                <span class="checkMulti">Schools</span>
-                <span class="checkSingle" style="display: none;">School</span>
-                
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <span class="checkMulti">Wayne Enterprises<br>St. Trinian's</span>
-                <span class="checkSingle" style="display: none;">St. Trinian's</span>
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                &nbsp;
-              </dd>
-            </div>
-            
-            
-            
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Membership start date</dt>
+          <dd class="govuk-summary-list__value">5 January 1978</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> start date</span></a>
+          </dd>
+        </div>
 
-          </dl>
+      </dl>
+    </div>
+  </div>
 
+  <!-- Summary Card: St. Trinian's -->
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">St. Trinian's</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Membership rules</dt>
+          <dd class="govuk-summary-list__value">Standard rules</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> membership rules</span></a>
+          </dd>
+        </div>
 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Membership start date</dt>
+          <dd class="govuk-summary-list__value">5 January 1978</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> start date</span></a>
+          </dd>
+        </div>
 
+      </dl>
+    </div>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{% endif %}
 
 
-
-
-
-
-
-
-          <div class="govuk-form-group" id="declarationSingle" style="display: none;">
+     <div class="govuk-form-group" id="declarationSingle">
             <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                 <!-- legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="govuk-fieldset__heading">
@@ -114,8 +100,109 @@
               </div>
             </fieldset>
           </div>
+{% endif %}
 
-          <div class="govuk-form-group" id="declarationMulti">
+
+{% if data['userGroup'] == 'group3' %}
+<h2 class="govuk-heading-m"> Application details</h2>
+  <div class="govuk-summary-list">
+    
+    <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__key">
+        <span class="checkMulti">Schools</span>
+      </div>
+      <div class="govuk-summary-list__value">
+        St. Trinian's
+      </div>
+    
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__key">
+        Membership rules
+      </div>
+      <div class="govuk-summary-list__value">
+        Standard rules
+      </div>
+      <div class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change</a>
+      </div>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__key">
+        Membership start date
+      </div>
+      <div class="govuk-summary-list__value">
+        5 January 1978
+      </div>
+      <div class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change</a>
+      </div>
+    </div>
+
+  </div>
+
+     <div class="govuk-form-group" id="declarationSingle">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                <!-- legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        Declaration
+                    </h1>
+                  </legend -->
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    I confirm that the information provided in this form is accurate to the best of my knowledge.
+                  </label>
+                </div>
+    
+              </div>
+            </fieldset>
+          </div>
+{% endif %}
+
+   {% if data['userGroup'] == 'group4'  or data['userGroup'] == 'group5' %}
+<h2 class="govuk-heading-m"> Application details</h2>
+  <div class="govuk-summary-list">
+    
+    <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__key">
+        <span class="checkMulti">School</span>
+      </div>
+      <div class="govuk-summary-list__value">
+       St. Trinian's
+      </div>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__key">
+        Membership rules
+      </div>
+      <div class="govuk-summary-list__value">
+        Standard rules
+      </div>
+      <div class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change</a>
+      </div>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__key">
+        Membership start date
+      </div>
+      <div class="govuk-summary-list__value">
+        5 January 1978
+      </div>
+      <div class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">Change</a>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="govuk-form-group" id="declarationMulti">
             <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                 <!-- legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="govuk-fieldset__heading">
@@ -145,6 +232,15 @@
             </fieldset>
           </div>
 
+ 
+ {% endif %}
+
+
+
+
+       
+
+        
 
 
 
@@ -164,42 +260,8 @@
       
 
   </div>
-
-  <p class="govuk-body">&nbsp;</p>
     
-<hr>
-
-<p class="govuk-body">Ignore everything below here</p>
-
-<a href="#" onclick="declarationSingle()">Single</a>
-<br>
-<a href="#" onclick="declarationMulti()">Multi</a>
-
-        
-        
-    </div>
 
 
-  </div>
-
-
-  <script>
-
-    function declarationSingle(){
-      $("#declarationMulti").css("display","none")
-      $("#declarationSingle").css("display","block")
-      $(".checkMulti").css("display","none")
-      $(".checkSingle").css("display","block")
-
-      
-    }
-    function declarationMulti(){
-      $("#declarationMulti").css("display","block")
-      $("#declarationSingle").css("display","none")
-      $(".checkMulti").css("display","block")
-      $(".checkSingle").css("display","none")
-    }
-
-  </script>
 
 {% endblock %}

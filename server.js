@@ -41,6 +41,8 @@ if (fs.existsSync('./app/v6/routes.js')) {
 }
 
 const app = express()
+
+
 const documentationApp = express()
 
 if (useV6) {
