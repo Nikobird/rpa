@@ -1,0 +1,122 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+ {{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+{% if data['haveAccount'] == 'yes' %}
+
+      <div class="govuk-form-group" id="qq1" style="display: block;">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+             What type of account do you have for RPA? 
+            </h1>
+          </legend>
+          <div id="" class="govuk-hint "> You will need this to have access to RPA. 
+          </div>
+
+
+          <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Academy, local-authority maintained school, or pupil referral unit 
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          Local authority or multi-academy trust 
+        </label>
+          <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          This allows you to view all the schools within your organisation. 
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+I need to create a local authority or multi-academy trust account    </span>
+  </summary>
+  <div class="govuk-details__text">
+        <li>Log in to DfE sign-in</a> </li>
+        <li>Select the 'Organisations' tab  </li>
+        <li>Under Related actions, select 'Request access to an organisation' </li>
+        <li>Enter the name of your local authority or trust   </li>
+        <li>Select your organisation from the list and select Confirm  </li>
+        <li>Once you've received email confirmation that this has been approved, log back in to DfE sign-in  </li>
+        <li>Under Related actions, select 'Add services to my account'  </li>
+        <li>Select your trust organisation  </li>
+        <li>Choose RPA service   </li>  </div>
+</details>
+
+ {% endif %}
+
+
+ {% if data['haveAccount'] == 'no' %}
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        What type of account would you like to set up for RPA?
+      </h1>
+    </legend>
+
+    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+      <!-- Option 1 -->
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="account-type-1" name="accountType" type="radio" value="school" data-aria-controls="">
+        <label class="govuk-label govuk-radios__label" for="account-type-1">
+          Academy, local-authority maintained school, or pupil referral unit
+        </label>
+      </div>
+
+      <!-- Option 2 (with conditional content) -->
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="account-type-2" name="accountType" type="radio" value="la-mat" data-aria-controls="conditional-account-info">
+        <label class="govuk-label govuk-radios__label" for="account-type-2">
+          Local authority or multi-academy trust
+        </label>
+      </div>
+
+    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-account-info">
+        <h2 class="govuk-heading-m">To create an account for your local authority or MAT:</h2>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Log in to DfE Sign-in</li>
+          <li>Select the ‘Organisations’ tab</li>
+          <li>Under Related actions, select ‘Request access to an organisation’</li>
+          <li>Enter the name of your local authority or trust</li>
+          <li>Select your organisation from the list and confirm</li>
+          <li>Wait for email confirmation</li>
+          <li>Log back into DfE Sign-in</li>
+          <li>Select ‘Add services to my account’</li>
+          <li>Choose the RPA service for your trust</li>
+        </ul>
+      </div>
+</div>
+
+{% endif %}
+<br>
+ <div class="govuk-button-group">
+        <a href="/selectuser" type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+          </a>
+          </div>
+         
+{% endblock %}

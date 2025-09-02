@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+ {{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+<form method="post" action="/account-answer">
+  <div class="govuk-form-group" id="qq1" style="display: block;">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+        <h1 class="govuk-fieldset__heading">Do you have a Department for Education account?</h1>
+      </legend>
+      <div class="govuk-hint">You will need this to have access to RPA.</div>
+
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="haveAccount" name="haveAccount" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="haveAccount">Yes</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="haveAccount-2" name="haveAccount" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="haveAccount-2">No</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+
+
+{% endblock %}

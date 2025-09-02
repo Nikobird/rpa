@@ -25,6 +25,21 @@ router.get('/schools-listLD', function (req, res) {
 });
 
 
+router.post('/account-answer', function (req, res) {
+  const answer = req.body.haveAccount;
+
+  if (answer === 'yes' || answer === 'no') {
+    res.redirect('/account_type');
+  } else {
+    res.redirect('/'); // fallback
+  }
+});
+router.post('/account-answer', function (req, res) {
+  const answer = req.body.haveAccount;
+  req.session.data['haveAccount'] = answer;
+  res.redirect('/account_type');
+});
+
 
 // Add your routes here - above the module.exports line
 

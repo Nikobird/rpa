@@ -12,166 +12,44 @@ text: "Back",
 href: "javascript:window.history.back()"
 }) }}
 
-{% if group == 'group1' %}
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
-              Parent organisation name &nbsp;
+              Greenwood Academies Trust
             </h1>
           </legend>
+
+{% if group == 'group1' %}
+
           <div id="" class="govuk-hint standardHint">
             <a href="/trust-details" class="govuk-body govuk-link govuk-link--no-visited-state">
-              View Parent organisation name's details and certificates
+              Greenwood Academies Trust details and certificates
             </a>
-
           </div>
-          <div id="" class="govuk-hint LAHint"style="display:none">
-            <a href="/trust-details" class="govuk-body govuk-link govuk-link--no-visited-state">
-              View Parent organisation name's details
-            </a>
-
-          </div>
-
-        </fieldset>
-      </div>
-          
-     <table class="govuk-table" cellspacing="0" cellpadding="0" border="0" role="table" aria-describedby="table-summary">
-
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">School</th>
-      <th scope="col" class="govuk-table__header">URN</th>
-      <th scope="col" class="govuk-table__header">Status</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        <a href="/school-details"><b>Hogwarts School of Witchcraft and Wizardry</b></a>
-      </td>
-      <td class="govuk-table__cell">202928</td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green">In RPA</strong>
-      </td>
-    </tr>
-
-     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        <a href="/school-details"><b>Cyberdyne Systems</b></a>
-      </td>
-      <td class="govuk-table__cell">202928</td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green">In RPA</strong>
-      </td>
-    </tr>
-
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        <a href="/school-opt-in"><b>Wayne Enterprises</b></a>
-      </td>
-      <td class="govuk-table__cell">234561</td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--blue">Not in RPA</strong>
-      </td>
-    </tr>
-
-   
- <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        <a href="/school-opt-in"><b>St. Trinian's</b></a>
-      </td>
-      <td class="govuk-table__cell">234561</td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--blue">Not in RPA</strong>
-      </td>
-    </tr>
-
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        <a href="/school-details"><b>Weyland Yutani</b></a>
-      </td>
-      <td class="govuk-table__cell">462876</td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--grey">Not eligible</strong>
-      </td>
-    </tr>
-  
-
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        <a href="/school-details"><b>Academy of the arts</b></a>
-      </td>
-      <td class="govuk-table__cell">142876</td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--grey">Not eligible</strong>
-      </td>
-    </tr>
-
-  </tbody>
-</table>
-
-      <p class="govuk-body">
-          6 schools. 2 not joined RPA. 3 joined RPA.
-      </p>
-
-
-      <div class="govuk-button-group">
-        <a href="/joinrpa" type="submit" class="govuk-button" data-module="govuk-button">
-          Add schools to RPA
-        </a>
-        <a href="/download" type="submit" class="govuk-button govuk-button--secondary " data-module="govuk-button">
-          Download school certificates
-        </a>
-      </div>
-
 {% endif %}
 
 {% if group == 'group2' %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
-              Parent organisation name &nbsp;
-            </h1>
-          </legend>
-          <div id="" class="govuk-hint standardHint">
+          <div id="" class="govuk-hint">
             <a href="/trust-details" class="govuk-body govuk-link govuk-link--no-visited-state">
-              View Parent organisation name's details
+             Greenwood Academies Trust details
             </a>
-
           </div>
-          <div id="" class="govuk-hint LAHint"style="display:none">
-            <a href="/trust-details" class="govuk-body govuk-link govuk-link--no-visited-state">
-              View Parent organisation name's details
-            </a>
-
-          </div>
-
         </fieldset>
       </div>
-
-
-
-
-  
+{% endif %}
           
      <table class="govuk-table" cellspacing="0" cellpadding="0" border="0" role="table" aria-describedby="table-summary">
 
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">School</th>
-      <th scope="col" class="govuk-table__header">URN</th>
-      <th scope="col" class="govuk-table__header">Status</th>
+      <th scope="col" class="govuk-table__header">Unique Reference Number</th>
+      <th scope="col" class="govuk-table__header">RPA Status</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -245,7 +123,6 @@ href: "javascript:window.history.back()"
           6 schools. 2 not joined RPA. 3 joined RPA.
       </p>
 
-
       <div class="govuk-button-group">
         <a href="/joinrpa" type="submit" class="govuk-button" data-module="govuk-button">
           Add schools to RPA
@@ -254,8 +131,6 @@ href: "javascript:window.history.back()"
           Download school certificates
         </a>
       </div>
-
-{% endif %}
 
 
 
