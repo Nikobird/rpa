@@ -1,0 +1,9 @@
+
+{
+  "serviceName": "Risk protection arrangement",
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
+}

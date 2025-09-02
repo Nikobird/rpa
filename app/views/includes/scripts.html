@@ -1,17 +1,28 @@
-<!-- Javascript -->
-<script src="/public/javascripts/jquery-1.11.3.js"></script>
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
 
-{% for scriptUrl in extensionConfig.scripts %}
-  <script src="{{scriptUrl}}"></script>
-{% endfor %}
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
-<script src="/public/javascripts/application.js"></script>
-
-{% if useAutoStoreData %}
-  <script src="/public/javascripts/auto-store-data.js"></script>
-{% endif %}
-
-<script src="/govuk/assets/all.js"></script>
-<script>
-  window.GOVUKFrontend.initAll()
-</script>
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+     {
+        href: "/",
+        text: "Support"
+      },  
+     {
+         href: "/",
+         text: "Privacy policy"
+       },
+       {
+         href: "/",
+         text: "Terms and conditions"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
