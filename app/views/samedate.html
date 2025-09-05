@@ -1,0 +1,68 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+
+ 
+{% endblock %}
+
+
+
+
+{% block content %}
+
+ {{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Does the RPA cover start on the same day? 
+      </h1>
+
+ <div id="" class="govuk-hint "> 
+If you have commercial insurance, RPA cover must start the day after your current policy ends to ensure continuous cover.
+
+            
+  <!-- views/samedate.html -->
+
+  <form action="/samedate" method="post">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        </legend>
+
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="same-yes" name="sameDates" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="same-yes">Yes</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="same-no" name="sameDates" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="same-no">No</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+       <div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+</div>
+  </form>
+
+         
+          
+    
+   
+
+
+
+   
+{% endblock %}
+

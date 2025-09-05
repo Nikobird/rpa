@@ -40,3 +40,10 @@ router.post('/account-answer', function (req, res) {
   req.session.data['haveAccount'] = answer;
   res.redirect('/account_type');
 });
+
+
+router.post('/samedate', function (req, res) {
+  console.log('User selected:', req.body.sameDates); // ← ADD THIS
+  req.session.data.sameDates = req.body.sameDates;
+  res.redirect('/selectdatemulti');
+});

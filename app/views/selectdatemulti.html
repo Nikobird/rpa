@@ -30,14 +30,13 @@ If you have commercial insurance, RPA cover must start the day after your curren
             
             </div>
       
-  <br>
-{% if data['userGroup'] == 'group1' or data['userGroup'] == 'group2' %}
+<!-- views/samedatemulti.html -->
 
-<div class="govuk-form-group">
+  {% if data.sameDates == "yes" %}
+
+    <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-    <legend class="govuk-fieldset__legend">
-      Apply this start date to all schools
-    </legend>
+
     <div class="govuk-date-input" id="passport-issued">
       <div class="govuk-date-input__item">
         <div class="govuk-form-group">
@@ -66,10 +65,10 @@ If you have commercial insurance, RPA cover must start the day after your curren
     </div>
   </fieldset>
 </div>
+  {% endif %}
 
-   <div class="govuk-checkboxes__divider">or</div>
-
-       <h2 class="govuk-heading-m">Wayne Enterprises 234561</h2>
+  {% if data.sameDates == "no" %}
+         <h2 class="govuk-heading-m">Wayne Enterprises</h2>
   <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
     <div class="govuk-date-input" id="passport-issued">
@@ -101,7 +100,7 @@ If you have commercial insurance, RPA cover must start the day after your curren
   </fieldset>
 </div>
 
-    <h2 class="govuk-heading-m">St. Trinian's 234561</h2>
+    <h2 class="govuk-heading-m">St. Trinian's</h2>
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
     <div class="govuk-date-input" id="passport-issued">
@@ -132,47 +131,10 @@ If you have commercial insurance, RPA cover must start the day after your curren
     </div>
   </fieldset>
 </div>
- {% endif %}
 
+  {% endif %}
 
- 
-   {% if data['userGroup'] == 'group3'  or data['userGroup'] == 'group4'  or data['userGroup'] == 'group5' %}
-  <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-    <legend class="govuk-fieldset__legend">
-    St. Trinian's 234561 
-    </legend>
-    <div class="govuk-date-input" id="passport-issued">
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-            Day
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-            Month
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-            Year
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
-        </div>
-      </div>
-    </div>
-  </fieldset>
-</div>
-
- {% endif %}
-
+  
       <div class="govuk-button-group">
         <a href="/check-multi" type="submit" class="govuk-button" data-module="govuk-button">
           Continue
@@ -181,8 +143,4 @@ If you have commercial insurance, RPA cover must start the day after your curren
           
     
       </div>
-
-
-   
 {% endblock %}
-

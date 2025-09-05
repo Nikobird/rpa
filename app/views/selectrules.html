@@ -20,10 +20,11 @@ href: "javascript:window.history.back()"
     <h1 class="govuk-heading-l">Select the type of school</h1>
 
     <div class="govuk-hint">We need this to apply the correct membership rules and cover based on the school type. You can search for the school type on <a href="#">Get information about schools (opens in new tab). </a> </div>
-
+ <br>
+<!-- MAT -->
     {% if data['userGroup'] == 'group1' %}
-    <br>
-    <h2 class="govuk-heading-m">Wayne Enterprises 234561</h2>
+   
+    <h2 class="govuk-heading-m">Wayne Enterprises  </h2> 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <div class="govuk-radios" data-module="govuk-radios">
@@ -40,7 +41,7 @@ href: "javascript:window.history.back()"
     </div>
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
-            <h2 class="govuk-heading-m">St. Trinian's 234561</h2>
+            <h2 class="govuk-heading-m">St. Trinian's </h2>
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="trinian-1" name="trinian" type="radio" value="church-academy">
@@ -53,15 +54,19 @@ href: "javascript:window.history.back()"
         </div>
       </fieldset>
     </div>
+
+     <div class="govuk-button-group">
+        <a href="/samedate" type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+          </a>
+         
+          
+    
+      </div>
     {% endif %}
 
-    {% if data['userGroup'] == 'group2' %}
-    <div class="govuk-hint">
-      It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> for your settings as this will
-      determine the cover that they receive. Visit <a href="#">Get information about schools (opens in new tab)</a> to see school types.
-      <br><br>
-      There are 3 sets of rules available due to the complexities of property ownership and staff employment.
-    </div>
+<!-- LA -->
+{% if data['userGroup'] == 'group2' %}
 
         <h2 class="govuk-heading-m">Wayne Enterprises 234561</h2>
     <div class="govuk-form-group">
@@ -101,16 +106,24 @@ href: "javascript:window.history.back()"
         </div>
       </fieldset>
     </div>
+
+     </div>
+</div>
+
+      <div class="govuk-button-group">
+        <a href="/samedate" type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+          </a>
+         
+          
+    
+      </div>
     {% endif %}
 
+    <!-- Academy -->
+
       {% if data['userGroup'] == 'group3' %}
-  <div class="govuk-hint">
-      It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> for your setting as this will determine the cover
-      that they receive. Visit <a href="#">Get information about schools (opens in new tab)</a> to see your school type and religious character.
-      If your setting is a church academy (academy occupies property which is made available by a Diocese or other Church trustees), select 'Church academy rules'.
-    </div>
-    <br>
-        <h2 class="govuk-heading-m">St. Trinian's 234561</h2>
+
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
@@ -126,16 +139,23 @@ href: "javascript:window.history.back()"
         </div>
       </fieldset>
     </div>
+
+     </div>
+</div>
+
+      <div class="govuk-button-group">
+        <a href="/selectdatesingle" type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+          </a>
+         
+          
+    
+      </div>
   {% endif %}
 
+<!-- Lams or PRU -->
 
   {% if data['userGroup'] == 'group4' or data['userGroup'] == 'group5' %}
-    <div class="govuk-hint">
-      It's important that you select the appropriate <a href="#">membership rules (opens in new tab)</a> for your settings as this will
-      determine the cover that they receive. Visit <a href="#">Get information about schools (opens in new tab)</a> to see school types.
-      <br><br>
-      There are 3 sets of rules available due to the complexities of property ownership and staff employment.
-    </div>
             <h2 class="govuk-heading-m">St. Trinian's 234561</h2>
 
     <div class="govuk-form-group">
@@ -156,18 +176,19 @@ href: "javascript:window.history.back()"
         </div>
       </fieldset>
     </div>
-  {% endif %}
-  </div>
+     </div>
 </div>
 
       <div class="govuk-button-group">
-        <a href="/selectdate" type="submit" class="govuk-button" data-module="govuk-button">
+        <a href="/selectdatesingle" type="submit" class="govuk-button" data-module="govuk-button">
           Continue
           </a>
          
           
     
       </div>
+  {% endif %}
+ 
 
 
 

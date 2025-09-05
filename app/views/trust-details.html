@@ -17,7 +17,23 @@ href: "javascript:window.history.back()"
     <main class="govuk-main-wrapper " id="main-content" role="main">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds-from-desktop">
-          <h1 class="govuk-heading-xl">Greenwood Academies Trust</h1>
+             <span class="govuk-caption-l">Greenwood Academies Trust</span>
+
+             {% if data['userGroup'] == 'group1' %}
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="cost">
+          Trust details and certificates
+        </label>
+      </h1>
+ {% endif %}
+      {% if data['userGroup'] == 'group2' %}
+  <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="cost">
+           Trust details
+        </label>
+      </h1>
+       {% endif %}
+
 
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
@@ -39,7 +55,7 @@ href: "javascript:window.history.back()"
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                URN
+                Unique Reference Number
               </dt>
               <dd class="govuk-summary-list__value">
                 123456
@@ -50,7 +66,7 @@ href: "javascript:window.history.back()"
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Type
+                School type
               </dt>
               <dd class="govuk-summary-list__value">
                 Academy converter

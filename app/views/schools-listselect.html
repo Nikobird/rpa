@@ -1,0 +1,134 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+ {{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+  
+
+
+           <span class="govuk-caption-l">Greenwood Academies Trust</span>
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="cost">
+           Select the schools you want to join RPA
+        </label>
+      </h1>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GDS Table with Select All Below</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/govuk-frontend/govuk/all.min.css" />
+</head>
+<body>
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+    <table class="govuk-table" role="table" aria-label="Select schools to include">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Select</th>
+          <th scope="col" class="govuk-table__header">School name</th>
+          <th scope="col" class="govuk-table__header">URN</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input school-checkbox" id="checkbox-1" name="schools[]" type="checkbox" value="wayne-enterprises" />
+              <label class="govuk-label govuk-checkboxes__label" for="checkbox-1"></label>
+            </div>
+          </td>
+          <td class="govuk-table__cell">
+            <a href="/school-opt-in"><b>Wayne Enterprises</b></a>
+          </td>
+          <td class="govuk-table__cell">234561</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">Not in RPA</strong>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input school-checkbox" id="checkbox-2" name="schools[]" type="checkbox" value="st-trinians" />
+              <label class="govuk-label govuk-checkboxes__label" for="checkbox-2"></label>
+            </div>
+          </td>
+          <td class="govuk-table__cell">
+            <a href="/school-opt-in"><b>St. Trinian's</b></a>
+          </td>
+          <td class="govuk-table__cell">234562</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">Not in RPA</strong>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="govuk-checkboxes__item" style="margin-top: 20px;">
+      <input class="govuk-checkboxes__input" id="select-all" type="checkbox" aria-describedby="select-all-hint" />
+      <label class="govuk-label govuk-checkboxes__label" for="select-all">Select all</label>
+    </div>
+  </div>
+<br>
+  <script>
+    const selectAllCheckbox = document.getElementById('select-all');
+    const checkboxes = document.querySelectorAll('.school-checkbox');
+
+    selectAllCheckbox.addEventListener('change', () => {
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = selectAllCheckbox.checked;
+      });
+    });
+
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        if (!checkbox.checked) {
+          selectAllCheckbox.checked = false;
+        } else {
+          const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+          selectAllCheckbox.checked = allChecked;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+   
+
+      <div class="govuk-button-group">
+        <a href="/selectrules" type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </a>
+     
+      </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -19,10 +19,13 @@ href: "javascript:window.history.back()"
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
-              Greenwood Academies Trust
-            </h1>
-          </legend>
+                <span class="govuk-caption-l">Greenwood Academies Trust</span>
+
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="cost">
+          RPA summary
+        </label>
+      </h1>
 
 {% if group == 'group1' %}
 
@@ -43,6 +46,10 @@ href: "javascript:window.history.back()"
       </div>
 {% endif %}
           
+
+ <p class="govuk-body">
+          You have 6 schools. 2 not joined RPA. 3 joined RPA.
+      </p>
      <table class="govuk-table" cellspacing="0" cellpadding="0" border="0" role="table" aria-describedby="table-summary">
 
   <thead class="govuk-table__head">
@@ -119,12 +126,10 @@ href: "javascript:window.history.back()"
   </tbody>
 </table>
 
-      <p class="govuk-body">
-          6 schools. 2 not joined RPA. 3 joined RPA.
-      </p>
+     
 
       <div class="govuk-button-group">
-        <a href="/joinrpa" type="submit" class="govuk-button" data-module="govuk-button">
+        <a href="/schools-listselect" type="submit" class="govuk-button" data-module="govuk-button">
           Add schools to RPA
         </a>
         <a href="/download" type="submit" class="govuk-button govuk-button--secondary " data-module="govuk-button">
