@@ -17,9 +17,13 @@ href: "javascript:window.history.back()"
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Select the type of school</h1>
+  {% if data['userGroup'] == 'group1' or data['userGroup'] == 'group2' %}
+               <span class="govuk-caption-l">Greenwood Academies Trust</span>
+               {% endif %}
 
-    <div class="govuk-hint">We need this to apply the correct membership rules and cover based on the school type. You can search for the school type on <a href="#">Get information about schools (opens in new tab). </a> </div>
+    <h1 class="govuk-heading-l">Membership cover: select the type of school</h1>
+
+    <div class="govuk-hint">We need this information to apply the correct membership rules and cover. You can search for the school type on <a href="#">Get information about schools (opens in new tab). </a> </div>
  <br>
 <!-- MAT -->
     {% if data['userGroup'] == 'group1' %}
@@ -68,7 +72,7 @@ href: "javascript:window.history.back()"
 <!-- LA -->
 {% if data['userGroup'] == 'group2' %}
 
-        <h2 class="govuk-heading-m">Wayne Enterprises 234561</h2>
+        <h2 class="govuk-heading-m">Wayne Enterprises</h2>
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <div class="govuk-radios" data-module="govuk-radios">
@@ -87,7 +91,7 @@ href: "javascript:window.history.back()"
         </div>
       </fieldset>
     </div>
-        <h2 class="govuk-heading-m">St. Trinian's 234561</h2>
+        <h2 class="govuk-heading-m">St. Trinian's</h2>
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
          <div class="govuk-radios" data-module="govuk-radios">
@@ -130,11 +134,11 @@ href: "javascript:window.history.back()"
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="wayne-1" name="wayne" type="radio" value="church-academy">
-            <label class="govuk-label govuk-radios__label" for="wayne-1">Church academy rules</label>
+            <label class="govuk-label govuk-radios__label" for="wayne-1">Church academy</label>
           </div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="wayne-2" name="wayne" type="radio" value="standard">
-            <label class="govuk-label govuk-radios__label" for="wayne-2">Standard rules</label>
+            <label class="govuk-label govuk-radios__label" for="wayne-2">Academy trust</label>
           </div>
         </div>
       </fieldset>
@@ -156,7 +160,6 @@ href: "javascript:window.history.back()"
 <!-- Lams or PRU -->
 
   {% if data['userGroup'] == 'group4' or data['userGroup'] == 'group5' %}
-            <h2 class="govuk-heading-m">St. Trinian's 234561</h2>
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">

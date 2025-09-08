@@ -21,7 +21,7 @@ href: "javascript:window.history.back()"
 
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
-        Enter RPA cover start date 
+        Enter the RPA cover start date 
       </h1>
 
  <div id="" class="govuk-hint "> 
@@ -30,9 +30,7 @@ If you have commercial insurance, RPA cover must start the day after your curren
             
             </div>
       
-  <br>
 
-   {% if data['userGroup'] == 'group3'  or data['userGroup'] == 'group4'  or data['userGroup'] == 'group5' %}
   <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
     <div class="govuk-date-input" id="passport-issued">
@@ -64,7 +62,6 @@ If you have commercial insurance, RPA cover must start the day after your curren
   </fieldset>
 </div>
 
- {% endif %}
 
       <div class="govuk-button-group">
         <a href="/check-multi" type="submit" class="govuk-button" data-module="govuk-button">

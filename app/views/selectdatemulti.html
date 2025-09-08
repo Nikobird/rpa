@@ -19,9 +19,15 @@ href: "javascript:window.history.back()"
 
   <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-two-thirds">
+    
+      
+<!-- views/samedatemulti.html -->
+
+  {% if data.sameDates == "yes" %}
+
+  <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
-        Enter RPA cover start date 
+      Enter the RPA cover start date for all schools
       </h1>
 
  <div id="" class="govuk-hint "> 
@@ -29,10 +35,6 @@ If you have commercial insurance, RPA cover must start the day after your curren
 
             
             </div>
-      
-<!-- views/samedatemulti.html -->
-
-  {% if data.sameDates == "yes" %}
 
     <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
@@ -68,6 +70,16 @@ If you have commercial insurance, RPA cover must start the day after your curren
   {% endif %}
 
   {% if data.sameDates == "no" %}
+  <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+      Enter the RPA cover start date for each school
+      </h1>
+
+ <div id="" class="govuk-hint "> 
+If you have commercial insurance, RPA cover must start the day after your current policy ends to ensure continuous cover.
+
+            
+            </div>
          <h2 class="govuk-heading-m">Wayne Enterprises</h2>
   <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">

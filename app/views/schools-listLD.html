@@ -33,7 +33,11 @@ href: "javascript:window.history.back()"
             <a href="/trust-details" class="govuk-body govuk-link govuk-link--no-visited-state">
               Greenwood Academies Trust details and certificates
             </a>
+             
           </div>
+          <p class="govuk-body">
+          You have 6 schools. 2 not joined RPA. 3 joined RPA.
+      </p> 
 {% endif %}
 
 {% if group == 'group2' %}
@@ -43,13 +47,14 @@ href: "javascript:window.history.back()"
             </a>
           </div>
         </fieldset>
+         <p class="govuk-body">
+          You have 6 schools. 2 not joined RPA. 3 joined RPA.
+      </p> 
       </div>
 {% endif %}
-          
+         
 
- <p class="govuk-body">
-          You have 6 schools. 2 not joined RPA. 3 joined RPA.
-      </p>
+
      <table class="govuk-table" cellspacing="0" cellpadding="0" border="0" role="table" aria-describedby="table-summary">
 
   <thead class="govuk-table__head">
@@ -60,16 +65,6 @@ href: "javascript:window.history.back()"
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        <a href="/school-details"><b>Hogwarts School of Witchcraft and Wizardry</b></a>
-      </td>
-      <td class="govuk-table__cell">202928</td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green">In RPA</strong>
-      </td>
-    </tr>
 
      <tr class="govuk-table__row">
       <td class="govuk-table__cell">
@@ -83,6 +78,26 @@ href: "javascript:window.history.back()"
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
+        <a href="/school-details"><b>Hogwarts School of Witchcraft and Wizardry</b></a>
+      </td>
+      <td class="govuk-table__cell">202928</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--green">In RPA</strong>
+      </td>
+    </tr>
+
+    
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <a href="/school-opt-in"><b>St. Trinian's</b></a>
+      </td>
+      <td class="govuk-table__cell">234561</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--blue">Not in RPA</strong>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
         <a href="/school-opt-in"><b>Wayne Enterprises</b></a>
       </td>
       <td class="govuk-table__cell">234561</td>
@@ -92,15 +107,16 @@ href: "javascript:window.history.back()"
     </tr>
 
    
- <tr class="govuk-table__row">
+    <tr class="govuk-table__row">
       <td class="govuk-table__cell">
-        <a href="/school-opt-in"><b>St. Trinian's</b></a>
+        <a href="/school-details"><b>Academy of the arts</b></a>
       </td>
-      <td class="govuk-table__cell">234561</td>
+      <td class="govuk-table__cell">142876</td>
       <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--blue">Not in RPA</strong>
+        <strong class="govuk-tag govuk-tag--grey">Not eligible</strong>
       </td>
     </tr>
+ 
 
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
@@ -113,15 +129,6 @@ href: "javascript:window.history.back()"
     </tr>
   
 
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        <a href="/school-details"><b>Academy of the arts</b></a>
-      </td>
-      <td class="govuk-table__cell">142876</td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--grey">Not eligible</strong>
-      </td>
-    </tr>
 
   </tbody>
 </table>
@@ -130,7 +137,7 @@ href: "javascript:window.history.back()"
 
       <div class="govuk-button-group">
         <a href="/schools-listselect" type="submit" class="govuk-button" data-module="govuk-button">
-          Add schools to RPA
+          Join schools to RPA
         </a>
         <a href="/download" type="submit" class="govuk-button govuk-button--secondary " data-module="govuk-button">
           Download school certificates

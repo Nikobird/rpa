@@ -20,7 +20,7 @@
        
 {% if data['userGroup'] == 'group1' or data['userGroup'] == 'group2' %}
 
-  <h2 class="govuk-heading-m">Application details</h2>
+  <h2 class="govuk-heading-m">RPA application details</h2>
 
   <!-- Summary Card: Wayne Enterprises -->
   <div class="govuk-summary-card">
@@ -29,17 +29,22 @@
     </div>
     <div class="govuk-summary-card__content">
       <dl class="govuk-summary-list">
-        
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Unique Reference Number</dt>
+          <dd class="govuk-summary-list__value">234561</dd>
+          </dd>
+        </div>
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">School type</dt>
+          <dt class="govuk-summary-list__key">Membership for</dt>
           <dd class="govuk-summary-list__value">Academy trust</dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> School type</span></a>
           </dd>
         </div>
 
+
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Membership start date</dt>
+          <dt class="govuk-summary-list__key">RPA start date</dt>
           <dd class="govuk-summary-list__value">5 January 1978</dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> start date</span></a>
@@ -58,8 +63,13 @@
     <div class="govuk-summary-card__content">
       <dl class="govuk-summary-list">
 
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Unique Reference Number</dt>
+          <dd class="govuk-summary-list__value">234562</dd>
+          </dd>
+        </div>
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">School type</dt>
+          <dt class="govuk-summary-list__key">Membership for</dt>
           <dd class="govuk-summary-list__value">Academy trust </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> membership rules</span></a>
@@ -67,7 +77,7 @@
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Membership start date</dt>
+          <dt class="govuk-summary-list__key">RPA start date</dt>
           <dd class="govuk-summary-list__value">5 January 1978</dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> start date</span></a>
@@ -77,6 +87,8 @@
       </dl>
     </div>
   </div>
+
+    <h2 class="govuk-heading-m">Declaration</h2>
 
 
 
@@ -101,6 +113,7 @@
 {% endif %}
 
 
+
 {% if data['userGroup'] == 'group3' %}
 <h2 class="govuk-heading-m"> Application details</h2>
   <div class="govuk-summary-list">
@@ -117,10 +130,19 @@
 
     <div class="govuk-summary-list__row">
       <div class="govuk-summary-list__key">
-        Membership rules
+       Unique Reference Number
       </div>
       <div class="govuk-summary-list__value">
-        Standard rules
+        234562
+      </div>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__key">
+        Membership for
+      </div>
+      <div class="govuk-summary-list__value">
+        Academy trust
       </div>
       <div class="govuk-summary-list__actions">
         <a class="govuk-link" href="#">Change</a>
@@ -129,7 +151,7 @@
 
     <div class="govuk-summary-list__row">
       <div class="govuk-summary-list__key">
-        Membership start date
+        RPA start date
       </div>
       <div class="govuk-summary-list__value">
         5 January 1978
@@ -140,6 +162,7 @@
     </div>
 
   </div>
+    <h2 class="govuk-heading-m">Declaration</h2>
 
      <div class="govuk-form-group" id="declarationSingle">
             <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -174,12 +197,21 @@
       </div>
     </div>
 
-    <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__row">
       <div class="govuk-summary-list__key">
-        Membership rules
+       Unique Reference Number
       </div>
       <div class="govuk-summary-list__value">
-        Standard rules
+        234562
+      </div>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__key">
+        Membership for
+      </div>
+      <div class="govuk-summary-list__value">
+        Community school
       </div>
       <div class="govuk-summary-list__actions">
         <a class="govuk-link" href="#">Change</a>
@@ -199,6 +231,7 @@
     </div>
 
   </div>
+    
 
     <div class="govuk-form-group" id="declarationMulti">
             <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -215,7 +248,7 @@
                     </label>
                     <input class="govuk-input govuk-!-width-one-half" id="event-name" name="eventName" type="text">
                   </div>
-              
+              <h2 class="govuk-heading-m">Declaration</h2>
               
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
@@ -235,9 +268,30 @@
 
 
 
+{% if data['userGroup'] == 'group1' or data['userGroup'] == 'group3' %}
+
+<div class="govuk-inset-text">
+Payment will be collected by deducting it from your General Annual Grant as detailed in the <a href="https://www.gov.uk/government/collections/academies-funding-payments-and-compliance">academies planning calendar (opens in new tab),</a> and are calculated based on your chosen start date.</div>
+{% endif %}
 
        
+  {% if data['userGroup'] == 'group2' %}
 
+              <div class="govuk-inset-text">
+                 Payment will be collected by deducting it from your Dedicated Schools Grant (DSG) as detailed in the academies planning calendar 
+                <a href="https://www.gov.uk/search/guidance-and-regulation?parent=/education/local-authority-schools-funding&topic=738e53f4-97df-4d9e-a2f1-8f733d526d84&order=updated-newest">local authorities planning calendar (opens in new tab)</a> and are calculated based on your chosen start date.</div>
+
+            {% endif %}
+
+
+    {% if data['userGroup'] == 'group4' or data['userGroup'] == 'group5' %}
+
+          <div class="govuk-inset-text">
+
+                Your local authority will confirm how deductions will be made from your funding allocation.
+
+            </div>
+            {% endif %}
         
 
 

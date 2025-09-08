@@ -131,6 +131,9 @@ href: "javascript:window.history.back()"
               </dd>
             </div>
           </dl>
+
+          <p> If any details are incorrect, visit <a href="#"> Get information about schools (opens in new tab).</a> </p>
+
     {% if data['userGroup'] == 'group1' %}
 
           <h2 class="govuk-heading-m">Membership certificates</h2>
@@ -145,16 +148,23 @@ href: "javascript:window.history.back()"
 
           {% endif %}
 
-        
+   
+        <br>
+              <div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+   Sign out
+  </button>
+        <a href="/school-listLD" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Back
+          </a>
+</div>
         </div>
       </div>
     </main>
   </div>
 
+ 
+    
 
-  <script>
-
-
-  </script>
 
 {% endblock %}
