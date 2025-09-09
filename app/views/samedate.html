@@ -20,6 +20,9 @@ href: "javascript:window.history.back()"
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
+       {% if data['userGroup'] == 'group1' or data['userGroup'] == 'group2' %}
+               <span class="govuk-caption-l">Greenwood Academies Trust</span>
+               {% endif %}
       <h1 class="govuk-heading-l">
         Do you want the same RPA cover start date for all schools?
       </h1>

@@ -26,6 +26,9 @@ href: "javascript:window.history.back()"
   {% if data.sameDates == "yes" %}
 
   <div class="govuk-grid-column-two-thirds">
+         {% if data['userGroup'] == 'group1' or data['userGroup'] == 'group2' %}
+               <span class="govuk-caption-l">Greenwood Academies Trust</span>
+               {% endif %}
       <h1 class="govuk-heading-l">
       Enter the RPA cover start date for all schools
       </h1>
@@ -71,6 +74,9 @@ If you have commercial insurance, RPA cover must start the day after your curren
 
   {% if data.sameDates == "no" %}
   <div class="govuk-grid-column-two-thirds">
+       {% if data['userGroup'] == 'group1' or data['userGroup'] == 'group2' %}
+               <span class="govuk-caption-l">Greenwood Academies Trust</span>
+               {% endif %}
       <h1 class="govuk-heading-l">
       Enter the RPA cover start date for each school
       </h1>
